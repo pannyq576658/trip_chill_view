@@ -1,0 +1,134 @@
+@charset "utf-8";
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+p {
+    font-size: 15px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    padding: 0;
+    border: 0;
+    /*	font: inherit;*/
+    vertical-align: baseline;
+}
+
+body {
+    background-color: #fafafa;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-repeat: repeat;
+    /* font-family: Roboto, arial, "Noto Sans TC", "Microsoft JhengHei", "sans", "sans-serif"; */
+    /*	background-image: url(../images/bg.jpg);*/
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+html {
+    height: 100%;
+    position: relative;
+}
+
+
+.brand-position {
+    padding: 18px 0 0 18px;
+
+}
+
+.brand-position img {
+    width: 120px;
+}
+
+
+
+.ui-dialog .text-center {
+    color: #2e494d;
+    font-size: 14px;
+}
+
+.ui-dialog .text-center a {
+    color: rgba(33, 112, 129, 0.87);
+    text-underline-position: under;
+}
+
+.ui-dialog .text-center a:hover {
+    color: #11737c;
+}
+
+.ui-dialog-l40 {
+    height: auto;
+    line-height: 40px;
+    text-align: right;
+}
+
+
+
+
+
+
+
+.ui-mask {
+    width: 100%;
+    background: rgba(0, 0, 0, .8);
+    position: absolute;
+    top: 0px;
+    height: 0px;
+    z-index: 8000;
+    filter: Alpha(opacity=40);
+}
+
+@media (max-width: 1199.98px) {
+    .ui-dialog {
+        padding: 3% 0 0 0;
+    }
+}
+
+@media (min-width: 992px) {}
+
+@media (max-width: 991.98px) {
+    .ui-dialog {
+        padding: 5% 0;
+    }
+}
+
+@media (max-width: 767.98px) {}
+
+@media (max-width: 575.98px) {
+    .brand-position {
+        padding: 15px 0 0 15px;
+    }
+
+    .ui-dialog h5 {
+        padding: 0;
+    }
+
+    .brand-position img {
+        width: 90px;
+    }
+
+    .ui-dialog {
+        padding: 30px 0 0 0;
+    }
+
+    .ui-dialog-content {
+        width: 345px;
+        padding: 0;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 374.98px) {
+    .ui-dialog-content {
+        width: 290px;
+        padding: 0;
+    }
+}

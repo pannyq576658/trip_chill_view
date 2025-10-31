@@ -1,0 +1,307 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<link rel="stylesheet" href="~/css/index.css">
+<style>
+
+    /*.carousel-control-prev-icon {
+        width: 50px;
+        height: 50px;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23c593d8' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5L4.25 4l2.5-2.5L5.25 0z'/%3e%3c/svg%3e");
+    }
+
+    .carousel-control-next-icon {
+        width: 50px;
+        height: 50px;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23c593d8' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
+    }*/
+
+
+    .swiper-button-next, .swiper-button-prev {
+        color: #f3b80a;
+    }
+   
+    .carousel-control-next, .carousel-control-prev {
+        width:10%
+    }
+    .blog_title {
+        font-size: 24px;
+        line-height: 38px;
+        color: #333;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+</style>
+<div id="travel_carousel_slide" class="carousel slide" data-bs-ride="carousel">
+
+    <!-- Indicators/dots -->
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#travel_carousel_slide" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#travel_carousel_slide" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#travel_carousel_slide" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#travel_carousel_slide" data-bs-slide-to="3"></button>
+    </div>
+
+    <!-- The slideshow/carousel -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="/img/index/20191110_220429_a19d59a4_w1920.jpg" alt="東京" class="d-block" style="width:100%; height: 350px !important;">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/index/bangkok_Wat-Phra-Kaeo_yvonne-1.jpg" alt="曼谷" class="d-block" style="width:100%; height: 350px !important;">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/index/a89d25248dd29f7364382369d5c12cf1-1600x500-c-center.jpg" alt="新德里" class="d-block" style="width:100%; height: 350px !important;">
+        </div>
+        <div class="carousel-item">
+            <img src="/img/index/7027939.jpg" alt="土耳其" class="d-block" style="width:100%; height: 350px !important;">
+        </div>
+    </div>
+
+
+    <!-- Left and right controls/icons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#travel_carousel_slide" data-bs-slide="prev">
+        <span class="swiper-button-prev"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#travel_carousel_slide" data-bs-slide="next">
+        <span class="swiper-button-next"></span>
+    </button>
+</div>
+
+<div class="Wrapper-hot-color">
+    <div class="container">
+        <div class="col-group-title-hot-01">
+            <h2>背包客專區</h2>
+        </div>
+        <div>
+            <hr>
+        </div>
+        <div class="row">
+            <h2 class="blog_title">自助旅行入門：隨興背包客的四個訣竅</h2>
+            
+            <div class="blog-inner-text mg-b-50">
+                <img src="/img/index/a123456.jpg" alt="123456" style="width:100%;">
+                <p>&nbsp;</p>
+
+                <p><span style="font-size:14px"><strong>背包客 (Backpacker) 定義很廣泛，簡單來說大概就是背著背包自助旅行的旅人。</strong></span></p>
+
+                <p>背包客需要自己獨立規劃整個旅程，包含旅途的食、衣、住、行，可以長達好幾個月，也可以短短幾天，可以過得很享受，也可以過得很落魄。當然，如果開心的話也可以完全不規劃，一切出發了再說。</p>
+
+                <p>然而要做一個很隨興的背包客，除了一顆樂活的心外，其實有一些基本的態度以及知識是有助於旅途身心愉快的，不然很容易就會被各式各樣的突發狀況所擊倒，造成旅途上的不開心。這邊集合了極為精華的旅人心得，總結而成作為一個隨興背包客的私房訣竅，希望大家都有機會嘗試成為一個隨興的背包客，享受真正自由自在的旅行。</p>
+
+                <p>&nbsp;</p>
+
+                <p><img alt="" src="/img/index/b12345.jpg" style="width:50%;"></p>
+
+                <p><span style="font-size:16px"><span style="color:#0000CD"><strong>(一)善用APP，記得帶手機</strong></span></span></p>
+
+                <p>帶著手機可以隨時隨地的玩遊戲(誤)。<strong>舊自助旅行時代，護照、現金、信用卡式旅行必備的三寶，到了現在得加上一隻手機變成四寶</strong>，作為一個科技時代的人類，雖然嘴巴上常常埋怨科技讓人與人之間心靈的距離越來越遙遠，但實際上建議還是老實帶著手機以備不時之需 (這邊提到的手機是智慧型手機，諾基亞3310 之類的頂多能夠防身，無法上網也是只能空悲嘆)。熱門的觀光國家，電信業者往往會推出給旅人使用的吃到飽短期方案，大家可以在下飛機的時候辦理相關手續，如果沒有也可以利用旅館的無線網路來先行將接下來需要的資料下載好。</p>
+
+                <p>好，那為什麼要帶著手機呢? 撥通SKYPE 來個視訊報平安是其次，重點是手機能運用很多很好用的APP，無論是住宿的、交通的、吃的用的通通都非常實用，這邊簡單分三個最基本的類別介紹：</p>
+
+                <p><span style="color:#FF8C00"><strong>1. 地圖軟體 (Google Map)</strong></span></p>
+
+                <p>現在還拿著旅遊書或是紙張地圖就真的過時了，作為一個隨興又想環遊世界的背包客，每次出門都要去買地圖像話嗎? 當然是用Google 提供的免費地圖服務隨時查看路線(如果是沒有網路的國度，就得先提早做好離線截圖)。Google Map 除了地圖功能外，陸陸續續擴充了景點、餐廳等等相關資訊，可以說是旅行APP之首，沒有Google Map 自助旅行的難度至少+10。</p>
+
+                <p><span style="color:#FF8C00"><strong>2. 交友軟體 (Tinder Skout)</strong></span></p>
+
+                <p>大軍未至，糧草先行。這個兵法有沒有聽過? 我們在出發旅行之前，可以先將交友軟體的位置設到當地，並開始與當地的朋友聊聊天談談心，並說你要到他們國家看看他們美麗的風土民情，這樣一來不僅可以先行得知一些當地的最新資訊，更有可能有一個當地人朋友作導遊(雖然只認識幾天，但君子之交總是淡如水嘛)。</p>
+
+                <p>不過呢，這個APP 要先行籌備，老實說不是隨興背包客的準則之一，但是到當地才進行就晚了一步，所以在這邊還是提供這個方法給計劃型的背包客。</p>
+
+                <p><span style="color:#FF8C00"><strong>3.在地化服務APP</strong></span></p>
+
+                <p>全世界都有工程師，所以世界各地都可以載到不一樣的APP，很多當地很好用的像是以前中國的滴滴打車、歐洲的toilet finder、迪士尼的即時排隊資訊等等，都是到用時方恨沒下載的好東西。不過這部分會依前往的國家有所不同，需要自己花時間發掘，建議也是可以隨口問問當地人，畢竟我們是觀光客，資訊看得再多也是跟不上實際變化。</p>
+
+                <p>&nbsp;</p>
+
+                <p><img alt="" src="/img/index/c3.JPG" style="width:50%;"></p>
+
+                <p><span style="font-size:16px"><span style="color:#0000CD"><strong>(二)入住青年旅館，經濟又好玩</strong></span></span></p>
+
+                <p>Hostel 即為青年旅館，如果你有點年紀也不用擔心，因為旅行途中其實常常遇到70歲up的背包客入住青年旅館，基本上旅人是不在乎年齡這種身外之物的。<span style="color:#FF8C00">這種旅館比起一般飯店的好處就是經濟實惠，有各式各樣的房型，還提供餐廳以及交流大廳，強調社群生活與文化交流，在這邊就像以前玩遊戲裡面的客棧，提供的不僅僅是住宿，還有遇到各種不同的NPC 機會，可以獲得相當多的旅遊資訊(畢竟大家都是來這城市遊玩的，甲後到相報嘛)。</span></p>
+
+                <p>在青年旅館中通常還會提供各式各樣的Trip 套裝行程，如果覺得孤單或是沒有想法的時候也可以隨興+1；或者也可以選擇買個幾手啤酒在大廳瞎混一晚，一定會有跟你一樣的人，跟他聊聊後應該就會有一些新的想法！</p>
+
+                <p>至於青年旅館要怎麼找呢? 最簡單的就是回到剛剛說的，你有沒有帶手機? 有帶的話就上網利用Hostel World 、Last Minute 之類的訂房軟體，看看評價及位置設施直接線上預訂，不然用問的是不容易問到的，因為沒什麼當地人會去入住當地的青年旅館。</p>
+
+                <p>&nbsp;</p>
+
+                <p><img alt="" src="/img/index/d123.JPG" style="width:50%;"></p>
+
+                <p><span style="font-size:16px"><span style="color:#0000CD"><strong>(三)好的背包帶你上天堂</strong></span></span></p>
+
+                <p>背包客背包客，客就是人，背包就是背包，除了人之外最重要的就是背包了，沒有背包背包客就不是背包客，頂多是個遊客。藉由這樣的文字遊戲，我想應該了解背包對於一個背包客來說有多重要了吧?</p>
+
+                <p>自助旅行短則一個禮拜，長動輒就好幾個月，要足夠裝下你的裝備絕對是一個重要條件，然而背包是要陪伴你整段旅程的，必須考量移動以及搭乘交通的方便性，一般來說&nbsp;45 升容量是最適合的背包容量，<span style="color:#FF8C00">這樣大小的背包大概是登機尺寸的極限</span>，<span style="color:#FF8C00">另外再搭配一個好收納的旅行提袋(duffle bag)做為第二包，機動性跟舒適性都會遠比背一個笨重的70升背包好得多。然而45升的背包滿載會有一定的重量，建議選擇至少有骨架與腰帶基本背負系統的款式，這會是攸關背負起來舒適與否的關鍵。</span></p>
+
+                <p>
+                    <br>
+                    <strong>容量、背負性</strong>
+                </p>
+
+                <p>查看背包的規格以及搭載的背負系統，看看背包是不是符合你的需求，這兩點基本的到位後，我們接著再來考慮他的<strong>外觀討不討喜(隨興但是外貌協會的背包客)、防水性、收納性 (口袋配置)、機動性(有無子母包設計、肩腰帶方不方便收納)</strong> ，這些部分可以考量自己行程來選擇要背負的背包，畢竟背包是整趟旅程與你形影不離、一直背在肩頭上的裝備，花多一點心思一定不會吃虧。要享受自由自在的自助旅行，背包是一個必要裝備，你可以帶的很少、可以省去精簡各種不同的東西，但無論如何總是還得有個背包來裝那些很少的東西。在這邊當然推薦的就是最適合旅行的&nbsp;<a href="https://www.hanchor.com/products/Travel%20Series/Breccia_Travel_Backpack?locale=zh-TW" target="_blank">Breccia 旅行背包</a>，沒有之一！有了他的陪伴，估計浪跡天涯就不成問題。</p>
+
+                <p>&nbsp;</p>
+
+                <p><img alt="" src="/img/index/e2.JPG" style="width:50%;"></p>
+
+                <p><span style="font-size:16px"><span style="color:#0000CD"><strong>(四)打包打得好，背起來沒煩惱</strong></span></span></p>
+
+                <p>旅行背包就跟登山背包一樣，背包選得好，亂打包一通也是枉然，打包可是你背起來舒適與否的重要關鍵啊！</p>
+
+                <p>打包之前首先要列出此次旅行的裝備清單，多想想幾次這些是不是必要的 (一般來說當地買的到的就不帶)，依性質與需要使用的時機依序打包，並核對清單確認，避免忘東忘西的窘境(不過隨興背包客通常很懶，所以通常也是都有忘記帶東西)。</p>
+
+                <p>清單列完就可以接著打包，這部分可以參考<a href="https://www.hanchor.com/news/141?locale=zh-TW" target="_blank">登山背包的打包方式</a>&nbsp;，重量的配置方式基本上是相同的，重心要盡量靠近身體軀幹部分，<span style="font-family:helvetica neue,helvetica,arial,sans-serif">建議底部先塞入密度低而蓬鬆的裝備，接著將密度較高的沉重物品放置於靠背處，而背包前方置入密度較低的物品讓背包的重心維持靠背，這樣背負起來才會有人包合一的效果。</span></p>
+
+                <p>除此之外由於旅行背包需要打包的裝備更多更雜，可以參考底下幾個重點：</p>
+
+                <p><strong>1. 分類型與位置收納</strong></p>
+
+                <p>衣物、衛生用品、3C產品等等... 各種不同類別的東西收納在背包不同的地方，或是可以考慮使用收納袋，這樣一來整理時一目了然，也同時減少臨時要拿東西找不到的窘境。</p>
+
+                <p><strong>2. 藏有一手救命錢</strong></p>
+
+                <p>不要把雞蛋放在同一個籃子，尤其是扒手多治安不好的地方，如果把現金信用卡這類東西都放在皮夾內，不小心弄丟就GG了。建議可以放一點救命錢或是一張信用卡在備用衣物的口袋內，或是背包的暗袋以備不時之需。</p>
+
+                <p><strong>3. 打包順序考慮使用頻率</strong></p>
+
+                <p>旅行背包不比日常生活用的背包，一伸手就能摸到底，如果皮包丟到背包最深處，每次結帳都要翻箱倒櫃是很麻煩低，因此建議依造使用頻率來進行打包，將到飯店才會使用的物品收納在背包深處，開口處附近則是像地圖、雨衣、輕便外套這類隨時會使用的裝備</p>
+
+                <p>&nbsp;</p>
+
+                <p>以上，就是這次隨性背包客總結出來的四個小撇步，不過如果你夠隨興的話，不遵守其實也是沒有關係的，畢竟出來玩的，開心最重要嘛！</p>
+
+                <p>&nbsp;</p>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="Wrapper-hot-color">
+    <div class="container">
+        <div class="col-group-title-hot-01">
+            <h2>數位遊牧專區</h2>
+        </div>
+        <div>
+            <hr>
+        </div>
+        <div class="row">
+            <div class="page article">
+                <section class="article-titlebar">
+                    <div class="container">
+                        <div class="title">
+                            <h5>「數位遊牧」不是自由工作者的專利？這 4 大方案助上班族也能成功上路</h5>
+                        </div>
+                    </div>
+                </section>
+                <div class="article-box">
+                    <div class="container">
+                        <div class="article-box__main">
+                            <figure class="main-img">
+                                <div class="main-img__pic">
+                                    <picture>
+                                        <source type="image/webp" media="(max-width: 768px)" data-srcset="https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Farticle%2F202307%2Farticle-64b0b3c461c14.jpg/?w=828&amp;format=webp" sizes="852px" srcset="https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Farticle%2F202307%2Farticle-64b0b3c461c14.jpg/?w=828&amp;format=webp">
+                                        <source type="image/webp" data-srcset="https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Farticle%2F202307%2Farticle-64b0b3c461c14.jpg/?w=828&amp;format=webp 1x,https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Farticle%2F202307%2Farticle-64b0b3c461c14.jpg/?w=1170&amp;format=webp 2x" sizes="852px" srcset="https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Farticle%2F202307%2Farticle-64b0b3c461c14.jpg/?w=828&amp;format=webp 1x,https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Farticle%2F202307%2Farticle-64b0b3c461c14.jpg/?w=1170&amp;format=webp 2x">
+                                        <img class="lazyautosizes lazyloaded" alt="「數位遊牧」不是自由工作者的專利？這 4 大方案助上班族也能成功上路" src="/img/index/article-64b0b3c461c14.jpg" data-sizes="auto" data-src="https://storage.googleapis.com/crossing-cms-cwg-tw/article/202307/article-64b0b3c461c14.jpg" data-srcset="https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Farticle%2F202307%2Farticle-64b0b3c461c14.jpg/?w=828 828w, https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Farticle%2F202307%2Farticle-64b0b3c461c14.jpg/?w=1170 1170w" sizes="852px" srcset="https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Farticle%2F202307%2Farticle-64b0b3c461c14.jpg/?w=828 828w, https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Farticle%2F202307%2Farticle-64b0b3c461c14.jpg/?w=1170 1170w" style="width:70%;">
+                                    </picture>
+                                </div>
+                                <figcaption>
+                                    <p class="main-img__info" style="display:block;">近年，數位遊牧的工作型態備受關注。</p>
+                                    <p class="main-img__creadit" style="display:block;">
+                                        Photo Credit：GaudiLab@Shutterstock
+                                    </p>
+                                </figcaption>
+                            </figure>
+                            <div class="main-introduction">
+                                找到一份遠距可以進行的工作並不難，但要找到完全符合自己對工作、生活、職涯期望的事業，就沒那麼容易。對於想要嘗試數位遊牧的上班族，作者分享幾個可以考慮的選項，並由衷建議：大膽嘗試，但小心踏下一步！不要被自己腦中許多的疑問和恐懼給嚇跑，努力去研究是否有可以「魚與熊掌兼得」的方式。
+                            </div>
+                            <div class="main-article">
+                                <div class="main-article-box">
+                                    <article>
+                                        <div class="trackSection">
+                                            <div class="ads-box">
+                                                <div class="ads billboard">
+                                                    <div id="div-gpt-ad-1585541122113-0" data-google-query-id="CMmOv_fCiIQDFdlSwgUdwH8M4A"><div id="google_ads_iframe_/423694368/Crossing_620x90_300x50_1_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/423694368/Crossing_620x90_300x50_1_0" name="google_ads_iframe_/423694368/Crossing_620x90_300x50_1_0" title="3rd party ad content" width="620" height="90" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" aria-label="Advertisement" tabindex="0" allow="attribution-reporting" style="border: 0px; vertical-align: bottom;" data-load-complete="true" data-google-container-id="2"></iframe></div></div>
+                                                </div>
+                                            </div>
+                                            <p>編按：數位遊牧（Digital Nomad）的工作型態，受到愈來愈多人關注，但這樣的形式真的只和從事特定產業或職務類型的人有緣嗎？如果是已經有一份正職工作的上班族，也有展開數位遊牧的機會嗎？</p>
+                                            <p>
+                                                如果你是已經有工作的上班族，而且任職的公司並不施行遠距工作，可以考慮以下幾個選項：<br>
+                                                &nbsp;<br>
+                                                <span style="color:#ff6600;"><strong>一、向現在的雇主討論遠距工作的可能性</strong></span><br>
+                                                &nbsp;<br>
+                                                首先，請先確定你是不是還希望繼續為這間公司工作。因為你肯定會花很多力氣溝通，而且需要試行、再調整、再執行。從老闆的角度來看，除非你是公司非常重視的人才，或者公司原本就打算開放遠距工作，否則要為了一個人去改變公司政策，是非常困難且漫長的過程。所以你確定會繼續為其效力，才是對公司與主管的尊重。
+                                            </p>
+                                            <p><strong>你必須明白，如果沒有其他同事遠距工作，你可能會面對到必須「一個人配合全公司」的情況。</strong>意思就是，雖然你不待在辦公室，但大家上班的時間，必須能即時聯繫上你，如果你選擇的落腳處和公司時區顛倒，將會是工作上的一大障礙。還有，你也必須確保你工作（或旅行）的地點，有暢通快速的網路，以及能讓你專心工作的環境。</p>
+                                            <p style="text-align:center"><picture><source type="image/webp" data-srcset="https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Fckeditor%2F202307%2Fckeditor-64b0b7e219c4f.jpg/?format=webp" sizes="630px" srcset="https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Fckeditor%2F202307%2Fckeditor-64b0b7e219c4f.jpg/?format=webp"><img src="/img/index/ckeditor-64b0b7e219c4f.jpg" class="lazyautosizes lazyloaded" data-src="/img/index/ckeditor-64b0b7e219c4f.jpg" data-sizes="auto" sizes="630px" style="width:100%"></picture></p>
+                                            <div class="img-title" style="">別害怕和雇主討論遠距工作的可能性。圖／GaudiLab@Shutterstock</div>
+                                            <p>另一個可能會遇上的，就是非遠距同事的敵意。我說的可能比較直接，但的確常有這樣的狀況。同事未必會當面與你發生衝突，但有可能常將「你又不在這裡，你不懂」或「我們在這裡忙，你在那裡爽」掛在嘴邊，當玩笑話，這些都會讓你不舒服，累積成為你的壓力。</p>
+                                            <p>加上你可能「真的」不那麼清楚同事工作的狀況，會掉一些球，犯一些錯，此時就很有可能成為代罪羔羊。當然，如果你們公司的工作氣氛非常正向，且大家都很期待你的「實驗成功」，情況就會好很多。我誠心希望你的公司是後者！</p>
+                                            <p><span style="color:#ff6600;"><strong>二、和現在的雇主討論更改合作模式</strong></span></p>
+                                            <p>或許你的工作內容是可以遠距執行的，但你的雇主不希望為你「開先例」；或是你自己並不想原本的朝九晚五、每天花 8 個小時工作，希望調整工作份量或減少時數。<strong>你可以就自己在公司的角色與目前的工作狀態，找一個「阻力」相對較小的方式來提案。你可能會很驚訝地發現，其實老闆等著你這樣說很久了！</strong></p>
+                                            <p>因為，要養一個正職員工，老闆付出的成本不只是你領到的薪資而已，還有勞健保、辦公室與周邊（水電與軟硬體等）等等的成本，至少需要多支出薪資的 20％，這還沒算上三節獎金、員工旅遊等福利。當然，如果你的提案會影響到工作效能，對老闆的吸引力可能會較有限。如何在「兼顧人事成本」和「維持一定工作效能」之間，找到「賣點」，就是你成功說服老闆的關鍵。</p>
+                                            <p>此外，還要注意，如果你跟老闆談到的遠距工作時數比原本進公司工作低，通常也代表你的收入會有所減少。如果公司又不允許兼差，變少的收入能否充分支應你的數位遊牧生活？就算公司允許你兼差，也會期待你承諾的工作表現不會打折扣。在提案之前，請先將這些都想清楚。</p>
+                                            <p style="text-align:center"><picture><source type="image/webp" data-srcset="https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Fckeditor%2F202307%2Fckeditor-64b0babfe9a7d.jpg/?format=webp" sizes="630px" srcset="https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Fckeditor%2F202307%2Fckeditor-64b0babfe9a7d.jpg/?format=webp"><img src="/img/index/ckeditor-64b0babfe9a7d.jpg" class="lazyautosizes lazyloaded" data-src="/img/index/ckeditor-64b0babfe9a7d.jpg" data-sizes="auto" sizes="630px" style="width:100%"></picture></p>
+                                            <div class="img-title" style="">想要更改工作模式，先思考如何兼顧人事成本和保持工作效能。圖／Indypendenz@Shutterstock</div>
+                                            <p><span style="color:#ff6600;"><strong>三、換一份可以遠距的工作</strong></span></p>
+                                            <p>許多經歷過上述兩種溝通過程的朋友告訴我：「如果當初我就換個工作，可能還簡單一點！」的確，找一間已經行之有年，接納甚至鼓勵遠距工作的公司，比要去撼動一間公司的文化容易多了。而且，你可能也會發現，支持遠距的公司其實並不少！</p>
+                                            <p><strong>現在在臺灣的求職網站上，已經都有「遠距工作」的條件可以勾選了，海外的工作更多！</strong>例如：<a href="https://www.flexjobs.com/" target="_blank">FlexJobs</a>、<a href="https://remote.co/" target="_blank">Remote.co</a>、<a href="https://justremote.co/" target="_blank">JustRemote</a>、<a href="https://www.virtualvocations.com/" target="_blank">Virtual Vocations</a>、<a href="https://weworkremotely.com/" target="_blank">WeWorkRemotely（WWR）</a>、<a href="https://remotive.com/" target="_blank">Remotive</a>，都是專屬於遠距工作或數位遊牧者找尋工作的平台。</p>
+                                            <p>有不少數位遊牧者在一開始都是「騎驢找馬」，目標鎖定就是可以遠距進行的工作，等到預備好了就上路。</p>
+                                            <p><span style="color:#ff6600;"><strong>四、自己接案或開創別的事業</strong></span></p>
+                                            <p style="text-align:center"><picture><source type="image/webp" data-srcset="https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Fckeditor%2F202307%2Fckeditor-64b0b9ad55eb9.jpg/?format=webp" sizes="630px" srcset="https://cw-image-resizer.cwg.tw/resize/uri/https%3A%2F%2Fstorage.googleapis.com%2Fcrossing-cms-cwg-tw%2Fckeditor%2F202307%2Fckeditor-64b0b9ad55eb9.jpg/?format=webp"><img src="/img/index/ckeditor-64b0b9ad55eb9.jpg" class="lazyautosizes lazyloaded" data-src="/img/index/ckeditor-64b0b9ad55eb9.jpg" data-sizes="auto" sizes="630px" style="width:100%"></picture></p>
+                                            <div class="img-title" style="">自由工作者能更全面地掌控自己的工作與時間，但也伴隨一定風險。圖／George Milton@Pexels</div>
+                                            <p>當前面三個選項都試過卻還不滿意，或者覺得自己已經準備好了，那麼成為接案的自由工作者，甚至成立公司創業，是許多數位遊牧者的選擇。原因很簡單：自己的掌控度高多了！畢竟前三個選項，都還得受限於公司的規定、主管或老闆是否同意。不過，第四個選項也是其中風險最高的。</p>
+                                            <p>你可能聽過「創業前你有一個老闆，創業後，所有的客戶都成為你的老闆！」我們以為創業就能夠自由選擇，事實上要先努力到可以存活，之後才能享受這樣的餘裕。從上班族轉變為老闆之後，有些人很享受這種自己做決定的工作模式，有些人則會因為必須親自處理上班時原本可由其他部門代勞的事項，而充滿無力感。例如記帳、報稅、接電話、設置硬體軟體等等，這些事情實際做起來都比看起來繁瑣得多。<strong>尤其是身為會移動的數位遊牧者，得搞得清楚所有法規細節，又要維持接案的品質，比固定在同一地點工作的創業者來說，複雜度又多了一層。</strong></p>
+                                            <p>有些人幸運些，從一個搶手的正職成為搶手的自由工作者，案子增加了再繼續成立公司行號，甚至招募員工。然而中間也得要走過「校長兼撞鐘」，無法「請假」的狀況，或燒腦如何為公司帶來更多業績，才能讓生活繼續的過程。如果你關關難過也關關都過了，也確定自己非常適合這樣的工作模式，那麼恭喜你！你不只是賺到了金錢，還擁有了時間和空間的自由。</p>
+                                            <p>話說回來，老闆有百百種，如果你是那種無法放下工作，每天一定要衝刺 14 個小時以上的創業者，數位遊牧的生活對你可能變化性太大了一些。這樣的數位遊牧者往往會發現自己，就算到了風景怡人的度假勝地「旅居」，事實上卻都足不出戶，待在自己租的 B&amp;B 工作，根本沒探索到新世界。</p>
+                                            <p>我的好朋友 Silke 是德國人，過去在英國倫敦上班，後來自學廣告投放、SEO 關鍵字等等，開始在倫敦從兼職開始，慢慢成為自由接案者，做得還不錯。當她與丈夫決定搬到西班牙時，她已經有了幾年的自由接案經驗，順利成為數位遊牧者。甚至她的事業還更蓬勃發展，現在客戶已經有英國、德國、南非的公司了，她也開始開設線上課程與 Podcast，分享自由工作者如何照顧自己身心健康。聽起來是不是很棒？但這一切並非一蹴可幾，她總共花了超過 10 年的時間努力，才走到今天。</p>
+                                            <p>其實，綜合起來你可能會發現，<strong>找到一份遠距可以進行的工作並不難，但要找到完全符合自己對工作、生活、職涯期望的事業，就沒那麼容易。</strong>我衷心建議，大膽嘗試，但小心踏下一步！不要被自己腦中許多的疑問和恐懼給嚇跑，努力去研究是否有可以「魚與熊掌兼得」的方式。別想要一步到位！在每個轉換之間，多給自己一點時間空間。</p>
+
+
+                                        </div>
+                                    </article>                             
+                                </div>
+                                <div class="second_art_area" id="second_art_area" data-num="1" style="display: none;"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="Wrapper-hot-color">
+    <div class="container">
+        <div class="col-group-title-hot-01">
+            <h2>c專區</h2>
+        </div>
+        <div>
+            <hr>
+        </div>
+        <div class="row"></div>
+    </div>
+</div>
+
+<div class="Wrapper-hot-color">
+    <div class="container">
+        <div class="col-group-title-hot-01">
+            <h2>d專區</h2>
+        </div>
+        <div>
+            <hr>
+        </div>
+        <div class="row"></div>
+    </div>
+</div>
+
+<!--<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>-->

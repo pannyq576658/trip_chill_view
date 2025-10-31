@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/tripviewserver/databases/tripViewDB03070110",
+      "type": "mssql.azure",
+      "connectionId": "connectString",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}

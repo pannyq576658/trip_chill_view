@@ -1,0 +1,126 @@
+﻿@page
+@model trip_chill_view.Pages.cartModel
+@{
+
+}
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+
+<link rel="stylesheet" href="~/css/cart-group1.css">
+<div class="content">
+
+
+    <div id="ctl00_ContentPlaceHolder1_upnlShoppingCart">
+
+
+        <div class="content footersticky">
+
+            <div class="Wrapper-color">
+                <!--	---------------------------購物車----------------	  -->
+                <div id="ctl00_ContentPlaceHolder1_pnlPayItem" class="container">
+
+                    <div class="row">
+                        <div class="col-lg-9 col-12 mx-auto">
+                            <div class="col-group-title-purchase-history-01">
+                                <h3 class="">購物車</h3>
+                            </div>
+                            <!-- <p class="m-0 mb-lg-4" style="color: #e94941; font-size: 14px; letter-spacing: .8px;">
+                提醒您，我們不會主動電話或簡訊通知變更付款方式！
+            </p>-->
+                        </div>
+                    </div>
+                    <!-- <hr class="mt-2 mb-2">-->
+
+                    <div class="row mb-md-1">
+                        <div class="col-lg-9 col-12 mx-auto">
+                            <div class="purchase-history-bgcolor">
+                                <div class="purchase-history-border-width-all d-flex flex-column">
+
+                                    <!-- 表頭 header start -->
+                                    <div class="purchase-history-border-width d-md-flex- flex-md-row flex-column pb-md-3 d-none">
+                                        <div class="purchase-history-border01 text-center p-1 py-2 pl-3 d-flex">
+                                            <label class="checkboxred_add d-inline-block d-none ">
+                                                <input id="ctl00_ContentPlaceHolder1__cbAllCheck" type="checkbox" name="ctl00$ContentPlaceHolder1$_cbAllCheck">
+                                                <span class="checkmark_add d-inline-flex"></span>
+                                                <h6 class="pl-4 mb-0">全 選</h6>
+                                            </label>
+                                            <h6 class="flex_add">課程名稱</h6>
+                                        </div>
+                                        <div class="purchase-history-border02 p-1 py-2 text-center d-lg-block d-none">
+                                            <h6>類 型</h6>
+                                        </div>                                        
+                                        <div class="purchase-history-border04 p-1 py-2 text-center">
+                                            <h6>金 額</h6>
+                                        </div>
+                                    </div>                                  
+                                    <!-- 表頭 header end -->
+
+
+                                    <div id="purchase-history-body" class="" style="">
+                                      
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <hr>
+
+                            <div class="purchase-history-bgcolor d-flex justify-content-around align-items-center mb-3">
+                                <div class="purchase-history-border3 pl-lg-3  text-left d-flex align-items-center">
+                                    <label class="checkboxred_add mr-md-5">
+                                        <input id="ctl00_ContentPlaceHolder1_cbAllCheck3" type="checkbox" name="ctl00$ContentPlaceHolder1$cbAllCheck3" checked="checked">
+                                        <span class="checkmark_add d-inline-flex"></span>
+                                        <h6 class="pl-4 mb-0">全 選</h6>
+                                    </label>
+
+                                    <a id="ctl00_ContentPlaceHolder1_lnkBtnRemove3" class="batch_delete_work" href="javascript:deleteSelect('') ">
+                                        <span class="fas fa-trash-alt">
+                                            <span style="font-weight: 400;"><u>批次刪除</u></span>
+                                        </span>
+                                    </a>
+
+                                </div>
+                                <div class="purchase-history-border5 text-right">
+                                    <span style="color: rgba(46, 73, 76, 0.87);">
+                                        共
+                                        <span id="totalProductNum" style="color: #e94941">
+                                            0
+                                        </span>
+                                        門產品
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- 總計 -->
+                            <div class="purchase-history-bgcolor d-flex justify-content-end pb-sm-5 pb-4" style="color: rgba(46, 73, 76, 0.87);">
+                                <div class="text-right">
+                                    <h6 class="d-flex flex-sm-row flex-column">
+                                        <span class="d-sm-inline-block d-none">結帳：</span>‭ <span class="d-sm-none d-inline-block mb-1">金 額</span>
+                                        <span id="totalPrice" style="font-weight: 600; color: #e94941;" class="mb-sm-0 mb-3 "></span>
+                                    </h6>
+                                </div>
+                            </div>
+                            <!-- 確認結帳 -->
+                            <div class="d-flex justify-content-end">
+                                <a id="ctl00_ContentPlaceHolder1_lnkBtnGoPayment" class="more-button_check" href="javascript:lnkBtnGoPaymentClick()">
+                                    確認結帳
+                                </a>
+                            </div>
+                        </div><!-- col9 col12-->
+                    </div>
+                </div>
+
+            </div>
+            <!--	---------------------------購物車----------------	  -->
+            <!--	---------------------------選擇付款方式----------------	  -->
+            <!--	---------------------------選擇付款方式----------------	  -->
+            <!--	--------------------------發票資訊----------------	  -->
+            <!--	--------------------------發票資訊----------------	  -->
+        </div>
+    </div>
+
+    <input type="hidden" name="ctl00$ContentPlaceHolder1$hfPayMode" id="ctl00_ContentPlaceHolder1_hfPayMode" value="6">
+    <input type="hidden" name="ctl00$ContentPlaceHolder1$hfCreditTimes" id="ctl00_ContentPlaceHolder1_hfCreditTimes" value="0">
+    <input type="hidden" name="ctl00$ContentPlaceHolder1$hfInvoiceType" id="ctl00_ContentPlaceHolder1_hfInvoiceType">
+
+
+</div>

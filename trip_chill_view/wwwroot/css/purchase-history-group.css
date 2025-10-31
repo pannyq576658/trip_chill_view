@@ -1,0 +1,504 @@
+﻿@charset "utf-8";
+/* @import url('https://fonts.googleapis.com/earlyaccess/notosanstc.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap'); */
+p {
+    font-size: 15px;
+}
+
+a:hover {
+    color: rgba(0,0,0,.7)
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    padding: 0;
+    border: 0;
+    /*	font: inherit;*/
+    vertical-align: baseline;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-repeat: repeat;
+    font-family: Roboto, arial, "Noto Sans TC", "Microsoft JhengHei", "sans", "sans-serif";
+    background-color: #fafafa;
+    /*	background-image: url(../images/bg.jpg);*/
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+html {
+    height: 100%;
+    position: relative;
+}
+
+.showwidth {
+    width: auto;
+}
+
+.purchase-history-bgcolor a:hover {
+    text-decoration: none;
+    color: #11737c;
+    /*		background-color: #29868E;*/
+}
+
+.advanced-button {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #469ba2;
+    /*	border: 1px solid #ced4da;*/
+    /*	background-color: #469BA2;*/
+    border-radius: 3px;
+    margin-bottom: 0px;
+    position: relative;
+    height: 30px;
+    padding-left: 8px;
+    padding-right: 20px;
+    letter-spacing: 1px;
+}
+
+.advanced-button-close {
+    text-align: right;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0,0,0,.54);
+    border: 1px solid #ced4da;
+    background-color: #fff;
+    border-radius: 3px;
+    margin-top: 15px;
+    position: relative;
+    height: 30px;
+    padding: 3px 6px;
+    letter-spacing: 1px;
+}
+
+    .advanced-button-close a:hover {
+        color: rgba(0,0,0,.87);
+    }
+
+.advanced-button::after {
+    display: inline-block;
+    position: absolute;
+    top: 13px;
+    right: 8px;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
+
+.Wrapper-color > p > a {
+    color: rgba(255, 255, 255, .87);
+}
+
+    .Wrapper-color > p > a:hover {
+        color: rgba(255, 255, 255, .54);
+    }
+
+.Wrapper-color {
+    padding: 60px 0 60px;
+}
+
+.Wrapper-color-2 {
+    padding: 0px 0 60px;
+}
+
+.class-expired {
+    -webkit-filter: grayscale(100%) opacity(.7);
+    -moz-filter: grayscale(100%) opacity(.4);
+    -ms-filter: grayscale(100%) opacity(.4);
+    -o-filter: grayscale(100%) opacity(.4);
+}
+/*-----------------直播課程----------*/
+.showwidth h6 {
+    margin-bottom: 0px;
+    line-height: 1.5;
+    color: rgba(0,0,0,.7);
+    /*
+    height: 45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+*/
+}
+
+
+
+
+
+.card-body img {
+    width: 25%;
+}
+
+.purchase-history-bgcolor {
+    width: 100%;
+}
+
+    .purchase-history-bgcolor h6 {
+        margin: 0;
+        padding: 6px;
+        color: rgba(0,0,0,.7);
+    }
+
+.purchase-history-border-width-all {
+    width: 100%;
+}
+
+.purchase-history-border-width {
+    width: 100%;
+}
+
+.purchase-history-border-width2 {
+    width: 100%;
+}
+
+    .purchase-history-border-width2 h6 {
+        color: rgba(0,0,0,.54);
+    }
+
+.purchase-history-border {
+    border: 1px solid #dee2e6;
+    width: 100%;
+    background-color: #fff;
+}
+
+.purchase-history-border2 {
+    border: 0px solid #dee2e6;
+    width: 100%;
+}
+
+.purchase-history-border3 {
+    width: 50%;
+}
+
+.purchase-history-border-width3 p {
+    font-size: 14px;
+}
+
+.purchase-history-border4 {
+    width: 25%;
+}
+
+.col-group-title-purchase-history-01 {
+    position: relative;
+}
+
+    .col-group-title-purchase-history-01 h3 {
+        color: #3f3f3f;
+        padding-left: 15px;
+        margin-bottom: 0;
+        font-size: 24px;
+    }
+
+    .col-group-title-purchase-history-01.expired h3 {
+        color: rgba(0, 0, 0, .54);
+        padding-left: 0px;
+        margin-bottom: 0;
+        font-size: 24px;
+    }
+
+    .col-group-title-purchase-history-01 p {
+        color: rgba(0, 0, 0, .57);
+        font-size: 15px;
+        padding-left: 15px;
+        margin-bottom: 0;
+    }
+
+    .col-group-title-purchase-history-01::before {
+        content: "";
+        width: 3px;
+        height: 100%;
+        background-color: #e94941;
+        top: 0;
+        left: 0px;
+        position: absolute;
+    }
+
+    .col-group-title-purchase-history-01.expired::before {
+        content: "";
+        width: 3px;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .0);
+        top: 0;
+        left: 0px;
+        position: absolute;
+    }
+
+.purchase-history-bgcolor a {
+    transition: background-color ease-in-out .2s;
+}
+
+.col-group-purchase-history-card-Suggest-ico {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+}
+
+.col-group-purchase-history-card-width {
+    width: 95%;
+}
+
+.col-group-purchase-history-card-img {
+    width: 5%;
+    height: 53px;
+    margin-right: 16px;
+    overflow: hidden;
+    border-radius: 60px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    transition: background-size ease-in-out .3s;
+}
+
+.col-group-purchase-history-card-title {
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: rgba(0, 0, 0, 0.7);
+    font-weight: 400;
+    width: 100%;
+    overflow: hidden;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+
+.more-button {
+    border-radius: 2px;
+    display: inline-block;
+    padding: 6px 14px;
+    text-align: center;
+    font-size: 16px;
+    margin: 30px auto;
+    cursor: pointer;
+    color: #e94941;
+    letter-spacing: 1px;
+    font-weight: 300;
+    transition: color ease-in-out .2s;
+}
+
+    .more-button span {
+        font-size: 12px;
+        vertical-align: text-bottom
+    }
+
+.more-button-hole {
+    border: solid 1px rgba(255, 255, 255, 0.70);
+    border-radius: 2px;
+    display: inline-block;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 30px auto;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.70);
+    letter-spacing: 0.5px;
+    font-weight: 300;
+    background-color: rgba(255, 255, 255, 0);
+    transition: border .15s ease-in-out, color .15s ease-in-out, background-color .15s ease-in-out;
+}
+
+    .more-button-hole span {
+        font-size: 12px;
+        vertical-align: text-bottom
+    }
+
+.more-button:hover {
+    color: rgba(233, 73, 65, 0.7);
+    text-decoration: none;
+}
+
+.more-button-hole:hover {
+    border: solid 1px rgba(255, 255, 255, 0);
+    color: rgba(255, 255, 255, 0.70);
+    background-color: rgba(255, 255, 255, .30);
+    text-decoration: none;
+}
+
+.col-group-purchase-history-card h4 {
+    color: rgba(0, 0, 0, .38);
+}
+
+.col-group-purchase-history-card-width h4:hover {
+    color: rgba(0, 0, 0, .54);
+}
+
+@media (max-width: 1199.98px) {
+}
+
+@media (min-width: 992px) {
+
+    /*
+    .purchase-history-bgcolor a:focus {
+        text-decoration: none;
+        background-color: #fff;
+    }
+    .purchase-history-bgcolor a:active {
+        text-decoration: none;
+        background-color: #fff;
+    }
+*/
+    .col-group-purchase-history-card a:hover > .col-group-purchase-history-card-img {
+        background-size: 120%;
+    }
+
+    .col-group-purchase-history-card-fico:hover {
+        color: #e94941;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .col-group-title-video-01-tag div a:hover {
+        text-decoration: none;
+        border: solid 1px rgba(78, 78, 78, 0);
+        color: #fff;
+        background-color: #ff736c;
+    }
+
+    .col-group-video-card a:hover {
+        box-shadow: 0 2px 2px rgba(41, 47, 56, 0.1), 0 4px 4px rgba(41, 47, 56, 0.1), 0 8px 8px rgba(41, 47, 56, 0.1), 0 16px 16px rgba(41, 47, 56, 0.1), 0 32px 32px rgba(41, 47, 56, 0.1);
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+        text-decoration: none;
+    }
+
+        .col-group-video-card a:hover > .col-group-video-card-head .col-group-video-card-img::after {
+            content: "";
+            opacity: .6;
+        }
+
+        .col-group-video-card a:hover > .col-group-video-card-head .col-group-video-card-img .video-ico {
+            font-size: 50px;
+            opacity: .7;
+        }
+
+    .col-group-video-card-fico:hover {
+        color: #e94941;
+    }
+
+    .col-group-title-video-01-tag::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    .col-group-title-video-01-tag::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, .5);
+    }
+
+    .col-group-title-school-01-tag div a:hover {
+        text-decoration: none;
+        border: solid 1px rgba(78, 78, 78, 0);
+        color: #fff;
+        background-color: #ff736c;
+    }
+}
+
+@media (max-width: 991.98px) {
+
+    .Wrapper-color {
+        padding: 60px 0 30px;
+    }
+
+    .purchase-history-bgcolor h6 {
+        font-size: 14px;
+        color: rgba(0,0,0,.7);
+    }
+
+    .showwidth h6, span {
+        font-size: 14px;
+    }
+
+    .card-body img {
+        width: 35%;
+    }
+
+    .advanced-button {
+        height: 24px;
+    }
+
+        .advanced-button::after {
+            top: 10px;
+        }
+}
+
+@media (max-width: 767.98px) {
+    .Wrapper-color {
+        padding: 30px 0 30px;
+    }
+
+    select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+    }
+
+    .purchase-history-border-width-all {
+        width: 100%;
+    }
+
+    .purchase-history-border-width {
+        width: 40%;
+    }
+
+    .purchase-history-border-width2 {
+        width: 60%;
+    }
+
+    .purchase-history-border {
+        border: 1px solid #dee2e6;
+        width: 100%;
+    }
+
+    .purchase-history-border2 {
+        border: 1px solid #dee2e6;
+        width: 100%;
+        background-color: #fff;
+    }
+
+    .purchase-history-border3 {
+        width: 100%;
+    }
+
+    .purchase-history-border4 {
+        width: 40%;
+    }
+
+    .showwidth span {
+        font-size: 14px;
+    }
+
+    .showwidth {
+        margin-top: 3px;
+    }
+
+    .card-body img {
+        max-width: 90px;
+    }
+}
+
+@media (max-width:575.98px) {
+}
+
+@media (max-width:320px) {
+    .card-body img {
+        width: 40%;
+    }
+}
+/* for iPhone x↑  */
+/* @supports(bottom: constant(safe-area-inset-bottom)) or (bottom: env(safe-area-inset-bottom)){
+	.Wrapper-bottomnav-color{
+		padding-bottom: calc(constant(safe-area-inset-bottom) - 20px);
+		padding-bottom: calc(env(safe-area-inset-bottom) - 20px);
+	}
+} */

@@ -1,0 +1,156 @@
+﻿@page
+@model trip_chill_view.Pages.shoppingCart_returnModel
+@{
+}
+<style>
+    .row1 {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px;
+    }
+</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="~/css/purchase-successful-group.css">
+<div class="Wrapper-color">
+    <div class="container">
+        <div id="return-result" class="row1">
+
+            <!-- 購買成功 -->
+            <div id="ctl00_ContentPlaceHolder1_successPanel" class="d-flex mx-auto align-items-center">
+
+                <div>
+                    <img src="/img/people.jpg" alt="" class="mr-4 d-md-block d-none">
+                </div>
+                <div class="d-flex justify-content-center successful-height flex-column">
+                    <div class="d-flex align-items-center justify-content-center mb-3">
+                        <svg class="checkmark success mr-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                            <circle class="checkmark_circle_success" cx="26" cy="26" r="25" fill="none"></circle>
+                            <path class="checkmark_check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" stroke-linecap="round"></path>
+                        </svg>
+                        <h1 class="mb-0 mt-1" style="color: rgb(0 0 0 / .87);">購買成功!</h1>
+                    </div>
+                    <h6 class="text-center" style="color: rgb(0 0 0 / .7);">Thanks for your support!</h6>
+                    <h6 class="text-center" style="color: rgb(0 0 0 / .7);">謝謝您的支持</h6>
+                </div>
+            </div>
+
+            <!-- 購買失敗 -->
+
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row1">
+            <div class="col-12">
+                <div class="w-100 text-center text-white" style="background-color: rgb(0 0 0 / 38%)">
+                    <h5 class="mb-0 p-2 font-weight-normal">訂單資訊</h5>
+                </div>
+                <div class="card card-body showwidth">
+
+                    <div id="purchase-history-table" class="purchase-history-border-width-all">
+                        <div class="purchase-history-border-width3">
+
+                            <div class="purchase-history-border-width3 d-sm-flex d-none">
+                                <div class="purchase-history-border3 p-1 text-center">
+                                    <h6 style="color: #469ba2; font-weight: 400;">課程名稱</h6>
+                                </div>
+                                <div class="purchase-history-border4 text-center">
+                                    <h6 style="color: #469ba2; font-weight: 400;">售 價</h6>
+                                </div>
+                                <div class="purchase-history-border4 pr-3 text-right">
+                                    <h6 style="color: #469ba2; font-weight: 400;">實 付</h6>
+                                </div>
+                            </div>
+
+                            <hr class="my-0 d-sm-block d-none">
+
+
+
+                            <div class="d-flex flex-sm-row flex-column align-items-sm-start align-items-end">
+                                <!-- 購買課程 -->
+                                <div class="purchase-history-border3 p-sm-3  d-flex align-items-start">
+                                    <img src="https://www.worker360.com.tw//gjundisk01.blob.core.windows.net/it360/Video/1c020515db5542049dd238c523aada9d.png" alt="" class="rounded">
+                                    <h6 class="pl-md-3 pl-2 mb-sm-0 mb-3">
+                                        玩遊戲學策略，制定成功策略：掌握關鍵業務概念和運營！
+                                    </h6>
+                                </div>
+                                <!-- 售價 -->
+                                <div class="purchase-history-border4 p-sm-3  text-center d-sm-block d-none">
+                                    <h6>
+                                        $0
+                                    </h6>
+                                </div>
+                                <!-- 實付 -->
+                                <div class="purchase-history-border4 p-sm-3 text-right d-flex flex-column mr-md-auto">
+                                    <h6>
+                                        $0
+                                    </h6>
+
+                                    <!-- 折扣碼 -->
+
+                                </div>
+                            </div>
+
+                            <div class="d-flex flex-sm-row flex-column align-items-sm-start align-items-end">
+                                <!-- 購買課程 -->
+                                <div class="purchase-history-border3 p-sm-3  d-flex align-items-start">
+                                    <img src="https://www.worker360.com.tw//gjundisk01.blob.core.windows.net/it360/Video/1c020515db5542049dd238c523aada9d.png" alt="" class="rounded">
+                                    <h6 class="pl-md-3 pl-2 mb-sm-0 mb-3">
+                                        玩遊戲學策略，制定成功策略：掌握關鍵業務概念和運營！
+                                    </h6>
+                                </div>
+                                <!-- 售價 -->
+                                <div class="purchase-history-border4 p-sm-3  text-center d-sm-block d-none">
+                                    <h6>
+                                        $0
+                                    </h6>
+                                </div>
+                                <!-- 實付 -->
+                                <div class="purchase-history-border4 p-sm-3 text-right d-flex flex-column mr-md-auto">
+                                    <h6>
+                                        $0
+                                    </h6>
+
+                                    <!-- 折扣碼 -->
+
+                                </div>
+                            </div>
+
+
+                            <hr class="my-sm-0 my-3">
+
+
+                            <hr class="mt-sm-0">
+
+                            <div class="purchase-history-border-width3 d-flex mb-3">
+                                <div class="purchase-history-border3 p-1 text-center"></div>
+                                <div class="purchase-history-border4 text-center">
+                                    <h6>總 計</h6>
+                                </div>
+                                <div class="purchase-history-border4 pr-sm-3 text-right">
+                                    <h6>
+                                        $0
+                                    </h6>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ctl00_ContentPlaceHolder1_successBtnPanel" class="d-flex my-5 mx-auto">
+
+                <div class="more-button3 mx-4"><a href="/">回首頁</a></div>
+                <div class="more-button3 mx-4"><a href="/cart">繼續購物</a></div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

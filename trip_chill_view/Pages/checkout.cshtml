@@ -1,0 +1,408 @@
+﻿@page
+@model trip_chill_view.Pages.checkoutModel
+@{
+}
+<link rel="stylesheet" href="~/css/cart-group1.css">
+<style>
+    .ItemBorder {
+        border: 1px solid #ccc;
+        background-color: #fff;
+    }
+
+    .liner {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border: 0;
+        border-top: 1px solid rgba(0,0,0,.1);
+    }
+
+    .discountinfo {
+        font-size: 15px;
+    }
+
+    .lblspace {
+        margin: 3px 0;
+    }
+
+    .f-danger {
+        color: #e94941;
+        font-size: 14px;
+        letter-spacing: .8px;
+    }
+
+    .f13 {
+        font-size: 13px;
+        color: rgba(46, 73, 76, 0.87);
+    }
+
+    .col-group-title-purchase-history-01 button {
+        border-width: 0;
+        background-color: unset;
+        padding: 0;
+    }
+</style>
+
+
+
+    <div id="ctl00_ContentPlaceHolder1_upnlShoppingCart">
+
+        <div class="content footersticky">
+
+            <div class="Wrapper-color">
+                <!--	---------------------------購物車----------------	  -->
+                <!--	---------------------------購物車----------------	  -->
+                <!--	---------------------------選擇付款方式----------------	  -->
+                <div id="ctl00_ContentPlaceHolder1_pnlPayTypeInfo" class="container mb-5">
+
+                    <div class="row">
+                        <div class="col-lg-10 col-12 mx-auto">
+                            <div class="col-group-title-purchase-history-01">
+                                <h3 class="">結 帳</h3>
+                            </div>
+                            <p class="mb-lg-5 mb-4" style="color: #e94941;font-size: 14px;letter-spacing: .8px;">
+                                提醒您，我們不會主動電話或簡訊通知變更付款方式！
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="ctl00_ContentPlaceHolder1_pnlPayType" class="row">
+
+
+                       <div class=" col-lg-10 col-12 mx-auto col-group-title-purchase-history-01">
+                            <h3 class="mb-1" style="font-size: 18px; font-weight: 400;">1.付款方式 <button type="button" data-toggle="collapse" data-target="#collapsePayQA" aria-expanded="false" aria-controls="collapsePayQA"><i class="fas fa-question-circle"></i></button></h3>
+                            <div class=" collapse" id="collapsePayQA">
+                                <div class="card card-body" style="color: rgba(46, 73, 76, 0.87);font-size: 14px;letter-spacing: .8px;padding: .75rem;">
+                                    <p class="mb-2 p-0" style="color: rgba(46, 73, 76, 0.87);font-size: 16px;">無法用點數付款?</p>
+                                    <ol class="mb-0" style=" padding-inline-start: 22px;line-height: 1.8;">
+                                        <li>可能餘點不足，可至「個資維護」查詢餘額</li>
+                                        <li>購物車內含不能用點數付款之課程</li>                                     
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-10 col-12 mx-auto mt-3">
+                            <div class="advanced-select position-relative  d-inline-block select">
+                                <select name="ctl00$ContentPlaceHolder1$DDLType" id="ctl00_ContentPlaceHolder1_DDLType" class="form-control form-control-sm select" disabled="disabled">
+                                    <option selected="selected" value="Credit1">信用卡 - 一次付清</option>
+                                    <option value="AbroadCredit">跨境海外刷卡</option>
+                                    <option value="LINEPay">LINE PAY</option>
+                                    <option value="ATM">ATM轉帳</option>
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class=" col-lg-10 col-12 mx-auto col-group-title-purchase-history-01">
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!--	---------------------------選擇付款方式----------------	  -->
+                <!--	--------------------------發票資訊----------------	  -->
+                <div id="ctl00_ContentPlaceHolder1_pnlInvoiceInfo" class="container">
+
+
+                    <div id="ctl00_ContentPlaceHolder1_pnlInvInfo" class="d-flex justify-content-start flex-column mb-3">
+
+
+                        <div class="row">
+                            <div class=" col-lg-10 col-12 mx-auto d-flex justify-content-start flex-column mb-1">
+                                <div class="col-group-title-purchase-history-01">
+                                    <h3 class="" style="font-size: 18px; font-weight: 400;">2.訂購人資料</h3>
+                                </div>
+                                <p class="kong mb-0" style="color: rgba(46, 73, 76, 0.87); font-size: 14px; letter-spacing: .8px;">
+                                    *請填寫正確資料，以利寄送中獎發票。發票開立恕無法修改！<span>
+                                        (
+                                        欲修改信箱請至「<a href="/profile" target="_blank"><u>個資維護</u></a>」)
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-10 col-12 mx-auto personal-infor">
+                            <div class="d-flex flex-column">
+
+                                <!--	--------------------------訂購人----------------	  -->
+                                <div class="mb-4">
+                                    <div class="d-flex align-items-sm-center flex-sm-row flex-column align-items-start">
+                                        <span class="pr-2  mb-sm-0 mb-2">姓 名：</span>
+                                        <input name="ctl00$ContentPlaceHolder1$txtName" type="text" value="" id="ctl00_ContentPlaceHolder1_txtName" disabled="disabled" placeholder="請輸入姓名">
+                                        <span id="ctl00_ContentPlaceHolder1_RFValidatorName" class="f-danger pl-2" style="color:Red;display:none;">姓名必填</span>
+                                    </div>
+
+                                </div>
+                                <div class="d-flex align-items-sm-center mb-4 flex-sm-row flex-column align-items-start">
+                                    <span class="pr-2  mb-sm-0 mb-2">手 機：</span>
+                                    <input name="ctl00$ContentPlaceHolder1$txtPhone" type="text" value="" id="ctl00_ContentPlaceHolder1_txtPhone" placeholder="請輸入手機號碼">
+                                    <span id="ctl00_ContentPlaceHolder1_RFValidatorPhone" class="f-danger pl-2" style="color:Red;display:none;">手機號碼必填</span>
+                                    <span id="ctl00_ContentPlaceHolder1_REValidatorPhone" class="f-danger pl-2" style="color:Red;display:none;">格式錯誤(09xxxxxxxx)</span>
+                                </div>
+                                <div class=" d-flex flex-column mb-5">
+                                    <div class="d-flex align-items-sm-center mb-2 flex-sm-row flex-column align-items-start">
+                                        <span class="pr-2  mb-sm-0 mb-2">信 箱：</span>
+                                        <input name="ctl00$ContentPlaceHolder1$txtEmail" type="text" value="" id="ctl00_ContentPlaceHolder1_txtEmail" disabled="disabled" placeholder="請輸入信箱">
+                                        <span id="ctl00_ContentPlaceHolder1_RFValidatorEmail" class="f-danger pl-2" style="color:Red;display:none;">電子信箱必填</span>
+                                        <span id="ctl00_ContentPlaceHolder1_REValidatorEmail" class="f-danger pl-2" style="color:Red;display:none;">電子信箱格式錯誤</span>
+                                    </div>
+                                    <p class="kong mb-0" style="color: rgba(46, 73, 76, 0.87); font-size: 14px; letter-spacing: .8px;">
+                                        *信箱空白，請至
+                                        <a href="/profile"><u>個人檔案</u></a>頁面填寫，並驗證電子信箱。
+                                    </p>
+                                </div>
+
+                                <!-- 地址隱藏 -->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--	--------------------------訂購人----------------	  -->
+                    <!--	--------------------------發票----------------	  -->
+                    <div class="row">
+                        <div class="col-lg-10 col-12 mx-auto  mb-0 col-group-title-purchase-history-01">
+                            <h3 class="" style="font-size: 18px; font-weight: 400;">3.發票類型</h3>
+                        </div>
+                        <div id="ctl00_ContentPlaceHolder1_pnlInvInfo2" class="col-lg-10 col-12 mx-auto mb-4">
+
+                            <div class="mb-4">
+                                <p class="kong mb-3" style="color: rgba(46, 73, 76, 0.87); font-size: 14px; letter-spacing: 0.8px;">
+                                    *依統一發票使用辦法規定，個人發票一經開立，不得更改或改開公司戶發票。
+                                    <a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0340082&amp;kw=%e7%99%bc%e7%a5%a8" target="_blank"><u>財政部電子發票流程說明</u></a>
+                                </p>
+                                <div class="advanced-select position-relative d-inline-block select mb-2">
+                                    <select name="ctl00$ContentPlaceHolder1$DDLReceipt" id="ctl00_ContentPlaceHolder1_DDLReceipt" class="form-control form-control-sm mb-0 select" disabled="disabled">
+                                        <option selected="selected" value="Personal">二聯 電子發票</option>
+                                        <option value="Company">統編 電子發票</option>
+                                        <option value="Donate">捐贈 電子發票</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
+                    <!--	--------------------------發票----------------	  -->
+                    <!--	--------------------------結帳課程----------------	  -->
+                    <div class="pb-1">
+                        <div class="row">
+                            <div class="col-lg-10 col-12 mx-auto mt-4">
+                                <div class="col-group-title-purchase-history-01">
+                                    <h3 class=" " style="font-size: 20px;
+                                  font-weight: 300;">
+                                        <i class="fas fa-shopping-cart pr-1"></i>結帳產品
+                                    </h3>
+                                </div>                             
+                            </div>
+                        </div>
+
+                        
+
+                        <div class="row mt-1">
+                            <div class="col-lg-10 col-12 mx-auto">
+                                <div class="purchase-history-bgcolor">
+                                    <div class="purchase-history-border-width-all d-flex flex-column">                                      
+                                        <div class="py-3 px-2 bundling_" style="background: #fff;">
+                                            <div class=" features-edit d-flex align-items-start">
+                                                <div class="purchase-history-border-width2 d-flex flex-md-row flex-column align-items-start">
+
+                                                    <div class="purchase-history-border2-01 orderform p-md-2 mb-sm-0 mb-2 mr-lg-0 mr-md-4 mr-0">
+                                                        <!-- 購買課程 -->
+                                                        <div class="d-flex align-items-start">
+                                                            <div class="">
+                                                                <img src="https://gjundisk01.blob.core.windows.net/it360/Video/6181a587fbdc47dd9c11641f002c4105.jpg" alt="" class="rounded">
+                                                            </div>
+                                                            <h6 class="px-lg-3 pr-md-2  pl-3 mb-sm-0 font-weight-normal" style="font-size: 15px;">
+                                                                AutoCAD建築室裝基礎篇
+
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="purchase-history-border-width3 d-flex align-items-start justify-content-between">
+
+                                                        <!-- 課程類型 -->
+                                                        <div class="purchase-history-border2-02 orderlist p-md-2 p-1 text-center d-lg-block d-none">
+                                                            <h6>影音</h6>
+                                                        </div>
+
+                                                        <!-- 折扣碼 -->
+                                                        <div class="purchase-history-border2-03 orderlist p-md-2 p-1 d-flex justify-content-start f13">
+                                                            <div class="d-flex align-items-center" style="color: rgba(46, 73, 76, 0.87);">
+                                                                <!--  <span class="d-md-none">折扣碼&ensp;
+                                                                </span>-->
+                                                                <span id="ctl00_ContentPlaceHolder1_repShoppingCart2_ctl00_lbDiscountCode"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="purchase-history-border2-04 p-md-2 p-1 d-flex align-items-start justify-content-end">
+                                                            <div class="d-flex align-items-start justify-content-end">
+
+                                                                <!-- 金額 -->
+                                                                <div class="text-right d-flex flex-column">
+                                                                    <h6 class="mr-lg-4 ">
+                                                                        <span id="ctl00_ContentPlaceHolder1_repShoppingCart2_ctl00_lblPrice">$9,000(36點)</span>
+                                                                    </h6>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="ctl00$ContentPlaceHolder1$repShoppingCart2$ctl01$hfCombNo" id="ctl00_ContentPlaceHolder1_repShoppingCart2_ctl01_hfCombNo">
+
+                                        <div class="py-3 px-2 bundling_" style="background: #fff;">
+                                            <div class=" features-edit d-flex align-items-start">
+                                                <div class="purchase-history-border-width2 d-flex flex-md-row flex-column align-items-start">
+
+                                                    <div class="purchase-history-border2-01 orderform p-md-2 mb-sm-0 mb-2 mr-lg-0 mr-md-4 mr-0">
+                                                        <!-- 購買課程 -->
+                                                        <div class="d-flex align-items-start">
+                                                            <div class="">
+                                                                <img src="https://gjundisk01.blob.core.windows.net/it360/Video/8ec7a9ca4c7840ca84ad743acf58aabd.jpg" alt="" class="rounded">
+                                                            </div>
+                                                            <h6 class="px-lg-3 pr-md-2  pl-3 mb-sm-0 font-weight-normal" style="font-size: 15px;">
+                                                                全國技術士-丙級電腦輔助機械設計製圖-AutoCAD 2020術科解題秘笈(下)
+
+                                                            </h6>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="purchase-history-border-width3 d-flex align-items-start justify-content-between">
+
+                                                        <!-- 課程類型 -->
+                                                        <div class="purchase-history-border2-02 orderlist p-md-2 p-1 text-center d-lg-block d-none">
+                                                            <h6>影音</h6>
+                                                        </div>
+
+                                                        <!-- 折扣碼 -->
+                                                        <div class="purchase-history-border2-03 orderlist p-md-2 p-1 d-flex justify-content-start f13">
+                                                            <div class="d-flex align-items-center" style="color: rgba(46, 73, 76, 0.87);">
+                                                                <!--  <span class="d-md-none">折扣碼&ensp;
+                                                                </span>-->
+                                                                <span id="ctl00_ContentPlaceHolder1_repShoppingCart2_ctl01_lbDiscountCode"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="purchase-history-border2-04 p-md-2 p-1 d-flex align-items-start justify-content-end">
+                                                            <div class="d-flex align-items-start justify-content-end">
+
+                                                                <!-- 金額 -->
+                                                                <div class="text-right d-flex flex-column">
+                                                                    <h6 class="mr-lg-4 ">
+                                                                        <span id="ctl00_ContentPlaceHolder1_repShoppingCart2_ctl01_lblPrice">$2,400(10點)</span>
+                                                                    </h6>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="pt-0 px-lg-3 px-md-2 rounded" style="color: rgba(46, 73, 76, 0.87);">
+                                    <div class="purchase-history-bgcolor d-flex justify-content-between mb-4">
+                                        <div class=" pr-lg-3 text-left">
+                                            <span>
+                                                共
+                                                <span id="totalProductNum" style="color: #e94941">
+                                                    2
+                                                </span>
+                                                門課程
+                                            </span>
+                                        </div>
+                                        <div class="pr-lg-3 text-right">
+                                            <h6>
+                                                <span class="d-sm-inline-block d-none">小計：</span>‭ <span class="d-sm-none d-inline-block">小計：</span><span id="Price">
+                                                    NT$
+                                                    11,400
+                                                </span>
+
+                                            </h6>
+                                        </div>
+                                    </div>
+                                    <!--
+                                    <div class="d-flex justify-content-around" >
+                                        <div class="purchase-history-bgcolor d-flex justify-content-end mb-2 ">
+                                            <div class=" pr-lg-3 text-right">
+                                                <label class="checkboxred">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark_2"></span>
+                                                </label>
+                                                <h6 style="font-size: 14px;">可折抵W幣<span style="color: #e94941"> 10 </span>點</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    -->
+
+
+                                    <div class="purchase-history-bgcolor d-flex  justify-content-end">
+                                        <div class="pr-lg-3 text-right">
+                                            <h6>
+                                                <span class="d-sm-inline-block d-none">總計：</span>‭ <span class="d-sm-none d-inline-block">總計：</span><span id="totalPrice" style="color: #e94941;font-weight: 600;">
+                                                    NT$
+                                                    11,400
+                                                </span>
+                                            </h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--	--------------------------結帳課程----------------	  -->
+
+                    <hr class="my-4">
+
+
+                    <div class="col-lg-10 col-12 mx-auto personal-infor px-1 ">
+                        <div class="d-flex justify-content-between align-items-sm-start align-content-start flex-sm-row flex-column">
+                            <div class="d-flex flex-column pr-sm-5" style="flex: 1;">
+                                <div class="form-check my-2">
+                                    <input class="form-check-input" type="checkbox" id="cboxAllow" checked="checked">
+                                    <label class="form-check-label" for="cboxAllow">
+                                        我已閱讀並已接受
+                                        <a href="https://www.worker360.com.tw/2020/protection-iframe.aspx" class="linker" data-winwidth="640" data-winheight="720">個資保護聲明</a> &amp;
+                                        <a href="https://www.worker360.com.tw/2020/contract-iframe.aspx" class="linker" data-winwidth="640" data-winheight="720">定型化契約</a> <br>
+                                        <span style="color:crimson">貼心提醒!! 因為這是測試版的綠界,所以需使用它提供的信用卡卡號和安全碼 信用卡卡號:4311-9522-2222-2222 安全碼:222</span>
+
+                                    </label>
+                                </div>
+                            </div>
+                            <a id="ctl00_ContentPlaceHolder1_lnkBtnPayment" class="more-button_check mt-sm-0 mt-4" >
+                                付 款 
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <!--	--------------------------發票資訊----------------	  -->
+            </div>
+        </div>
+
+        <input type="hidden" name="ctl00$ContentPlaceHolder1$hfPayMode" id="ctl00_ContentPlaceHolder1_hfPayMode" value="6">
+        <input type="hidden" name="ctl00$ContentPlaceHolder1$hfCreditTimes" id="ctl00_ContentPlaceHolder1_hfCreditTimes" value="0">
+        <input type="hidden" name="ctl00$ContentPlaceHolder1$hfInvoiceType" id="ctl00_ContentPlaceHolder1_hfInvoiceType">
+
+    </div>
+

@@ -1,0 +1,157 @@
+﻿@page
+@model trip_chill_view.Pages.ordersModel
+@{
+    
+}
+<link rel="stylesheet" href="~/css/purchase-history-group.css">
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous" defer=""></script>
+
+<div class="Wrapper-color">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-start flex-column">
+            <div class="col-group-title-purchase-history-01">
+                <h3 class="">我的訂單</h3>
+            </div>
+            <p class="m-0 mt-2" style="color: #e94941">提醒您，我們不會主動電話或簡訊通知顧客變更付款方式！</p>
+        </div>
+
+        <div>
+            <hr class="mt-2">
+        </div>
+
+        <span id="OrderList">
+            <div class="row mb-md-1 mb-4">
+                <div class="col-12">
+                    <div class="purchase-history-bgcolor d-flex justify-content-md-between flex-md-row flex-column align-items-end">
+                        <div class="purchase-history-border-width-all d-flex flex-md-column flex-row ">
+                            <div class="purchase-history-border-width d-flex flex-md-row flex-column pb-md-3">
+                                <div class="purchase-history-border p-1">
+                                    <h6>訂單編號</h6>
+                                </div>
+                                <div class="purchase-history-border p-1">
+                                    <h6>購買日期</h6>
+                                </div>
+                                <div class="purchase-history-border p-1">
+                                    <h6>狀 態</h6>
+                                </div>
+                                <div class="purchase-history-border p-1">
+                                    <h6>總金額</h6>
+                                </div>
+                            </div>
+                            <div class="purchase-history-border-width2 d-flex flex-md-row flex-column">
+                                <div class="purchase-history-border2 p-md-2 p-1">
+                                    <h6>2021120500000011</h6>
+                                </div>
+                                <div class="purchase-history-border2 p-md-2 p-1">
+                                    <h6>2021/12/05</h6>
+                                </div>
+                                <div class="purchase-history-border2 p-md-2 p-1">
+                                    <h6>付款(扣點)完成</h6>
+                                </div>
+                                <div class="purchase-history-border2 p-md-2 p-1 d-flex justify-content-between align-items-center">
+                                    <h6 style="color: rgba(0,0,0,.54)">$2,800</h6>
+                                    <p class="mb-0">
+                                        <a class="advanced-button order-detail collapsed" data-toggle="collapse" href="#collapseExample2021120500000011" role="button" aria-expanded="false" aria-controls="collapseExample2021120500000011" data-orderno="2021120500000011">明細</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showwidth collapse" id="collapseExample2021120500000011" style="">
+                        <div class="card card-body">
+                            <div class="purchase-history-border-width-all">
+                                <div class="purchase-history-border-width3">
+                                    <div class="purchase-history-border-width3 d-sm-flex d-none">
+                                        <div class="purchase-history-border3 p-1 text-center">
+                                            <h6 style="color: #469ba2; font-weight: 400;">課程名稱</h6>
+                                        </div>
+                                        <div class="purchase-history-border4 text-center">
+                                            <h6 style="color: #469ba2; font-weight: 400;">售 價</h6>
+                                        </div>
+                                        <div class="purchase-history-border4 pr-3 text-right">
+                                            <h6 style="color: #469ba2; font-weight: 400;">實 付</h6>
+                                        </div>
+                                    </div>
+                                    <hr class="my-0 d-sm-block d-none">
+                                    <span id="2021120500000011_detail">
+                                        <div class="d-flex flex-sm-row flex-column align-items-sm-start align-items-end">
+                                            <div class="purchase-history-border3 p-sm-3  d-flex align-items-start">
+                                                <img src="https://gjundisk01.blob.core.windows.net/it360/Video/8fbf8eb9d34440da9e2edffac47a6d72.jpg" alt="" class="rounded">
+                                                <h6 class="pl-md-3 pl-2 mb-sm-0 mb-3">《零基礎打造電商網站》邊做邊學C# - 網站開發接案必備技能！</h6>
+                                            </div>
+                                            <div class="purchase-history-border4 p-sm-3  text-center d-sm-block d-none">
+                                                <h6>4680</h6>
+                                            </div>
+                                            <div class="purchase-history-border4 p-sm-3 text-right d-flex flex-column mr-md-auto">
+                                                <h6>$2,800</h6>
+                                                <div class="d-flex justify-content-end align-items-center">
+                                                    <h6 style="color: red" class=" pr-md-3 pr-sm-2 pr-4">折扣</h6>
+                                                    <span style="color: red">1,880</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="my-sm-0 my-3">
+                                    </span>
+                                    <hr class="mt-sm-0">
+                                    <div class="purchase-history-border-width3 d-flex mb-1">
+                                        <div class="purchase-history-border3 p-1 text-center">
+                                        </div>
+                                    </div>
+                                    <div class="purchase-history-border-width3 d-flex mb-3">
+                                        <div class="purchase-history-border3 p-1 text-center">
+                                        </div>
+                                        <div class="purchase-history-border4 text-center">
+                                            <h6>總 計</h6>
+                                        </div>
+                                        <div class="purchase-history-border4 pr-sm-3 text-right">
+                                            <h6>$‭2,800</h6>
+                                        </div>
+                                    </div>
+                                    <div class="p-sm-3 d-flex justify-content-start flex-lg-row flex-column" style="color: rgba(0,0,0,.54);">
+                                        <div class=" d-flxe">
+                                            <p>
+                                                發票日期：<span>20211205</span>
+                                            </p>
+                                            <p>
+                                                發票號碼：<span>UF87217231</span>
+                                            </p>
+                                        </div>
+                                        <div class=" pl-lg-5 d-flxe">
+                                            <p>
+                                                統一編號：<span>
+                                                </span>
+                                            </p>
+                                            <p>
+                                                抬 頭：<span>Irving Lin</span>
+                                            </p>
+                                        </div>
+                                        <div class="pl-lg-5 d-flxe">
+                                            <p>
+                                                地 址：<span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <hr class="d-md-block d-none">
+        </span>
+
+        <div class="mx-sm-auto text-center">
+            <div class="loadingTxt" style="display: none;">載入中，請稍候...</div>
+        </div>
+
+    </div>
+
+    <a class="more-button my-order-history" data-page="0" href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$ctl00','')" style="display: none;"></a>
+    <div class="autoload"></div>
+
+</div>

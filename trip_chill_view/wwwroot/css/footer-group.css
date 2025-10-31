@@ -1,0 +1,192 @@
+@charset "utf-8";
+/* @import url('https://fonts.googleapis.com/earlyaccess/notosanstc.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap'); */
+
+
+
+/*-----------------footer---------*/
+.footer-bg-color {
+	background-color: #fff;
+
+}
+
+.footer-bg-color p,
+.footer-bg-color a[href^="tel"],
+.footer-bg-color a[href^="mailto"] {
+	color: #8e9aa3;
+}
+
+.footer-bg-color a[href^="tel"],
+.footer-bg-color a[href^="mailto"] {
+	font-size: 15px;
+	margin-bottom: 1rem;
+	display: inline-block;
+}
+
+.footer-bg-color span {
+	display: inline-block;
+	padding-right: 3px;
+	color: #8e9aa3;
+	font-size: 25px;
+	font-weight: 300;
+}
+
+/* .footer-bg-color a[href^="tel"]:hover,
+.footer-bg-color a[href^="mailto"]:hover{
+	text-decoration: underline;
+} */
+
+
+.footer-bg-color ul {
+	color: #8e9aa3;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.footer-flex {
+	display: flex;
+}
+
+.foot-new-line {
+	/*	border-top: 1px solid rgba(0,0,0,.1);*/
+	padding: 24px 0;
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.footer-head {
+	color: #8e9aa3;
+	font-size: 22px;
+	font-weight: 500;
+	margin-bottom: 25px;
+}
+
+.footer-bg-color ul li {
+	padding: 4px 0;
+}
+
+.footer-bg-color ul li a {
+	font-size: 15px;
+	font-weight: 300;
+	color: #8e9aa3;
+}
+
+.footer-padding {
+	padding: 18px 0;
+	font-size: 13px;
+	font-weight: 300;
+}
+
+.footer-margin {
+	margin-top: 40px;
+	margin-bottom: 24px;
+}
+
+
+
+
+@media (max-width: 1199.98px) {
+
+
+
+	.footer-bg-color p {
+		color: #8e9aa3;
+		font-size: 13px;
+		font-weight: 300;
+		white-space: nowrap;
+
+	}
+
+	.footer-bg-color span {
+		font-size: 13px;
+		padding-right: 4px;
+		white-space: nowrap;
+	}
+	.footer-bg-color a[href^="tel"], .footer-bg-color a[href^="mailto"] {
+		font-size: 13px;
+	}
+
+}
+
+
+
+@media (max-width: 991.98px) {
+	/* .footer-bg-color p ,.footer-bg-color a[href^="tel"], .footer-bg-color a[href^="mailto"] ,.footer-bg-color span{
+		font-size: 14px;
+
+	} */
+	.foot-new-line2 {
+		padding: 0px 0px 24px;
+		border-bottom: 1px solid rgba(0, 0, 0, .1);
+	}
+	.footer-head {
+		margin-top: 0px;
+	}
+
+	.footer-bg-color {
+		margin-top: 0px;
+		padding-bottom: 70px;
+		padding-top: 20px;
+	}
+
+	.foot-new-line {
+		/*	border-top: 1px solid rgba(0,0,0,.1);*/
+		padding:  0;
+		border-bottom: 0px solid rgba(0, 0, 0, .1);
+		
+	}
+
+}
+
+@media (max-width: 767.98px) {
+
+
+
+	.footer-bg-color p {
+		margin-bottom: 6px;
+		white-space: normal;
+	}
+
+	.footer-fontsize-fa a i {
+		font-size: 30px;
+		margin-top: 15px;
+		color: #8e9aa3;
+	}
+
+}
+
+@media (max-width:575.98px) {
+	.foot-new-line2 {
+		padding: 0px 0px 18px;
+	}
+	.footer-head {
+		color: #8e9aa3;
+		font-size: 22px;
+		font-weight: 500;
+		margin: 25px 0 0;
+	}
+
+	.footer-bg-color {
+		padding-top: 0px;
+	}
+
+	.footer-padding {
+		padding: 24px 0 8px;
+	}
+
+	.footer-bg-color p {
+		margin-bottom: 8px;
+		font-size: 14px;
+	}
+	.footer-bg-color a[href^="tel"], .footer-bg-color a[href^="mailto"] {
+		font-size: 14px;
+	}
+}
+
+/* for iPhone x↑  */
+/* @supports(bottom: constant(safe-area-inset-bottom)) or (bottom: env(safe-area-inset-bottom)){
+	.Wrapper-bottomnav-color{
+		padding-bottom: calc(constant(safe-area-inset-bottom) - 20px);
+		padding-bottom: calc(env(safe-area-inset-bottom) - 20px);
+	}
+} */
