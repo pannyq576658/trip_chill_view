@@ -1,6 +1,7 @@
 // 登入及註冊使用
 var LINE_login_state_timer;
 var LINE_login_state_timer_fun;
+
 function registerPost(memberJson) {
     $.ajax({
         url: route+'/api/member/insertMember',
@@ -45,17 +46,53 @@ function LINE_sql_load(memberJson) {
         });
     }
 }
+function LINE_Offline_login(memberJson) {
+    member.setData(memberJson);
+    alert("登入成功");
+    top.location.href = document.referrer;
+
+    
+}
+function LINE_Offline_doSignOut() {
+    
+    member.dataClear();
+
+    if (liff.isLoggedIn()) {
+        liff.logout();      
+        top.location.href = '/';
+    }
+    
+}
 function LineInit(liffId) {
     liff.init({
         liffId: liffId
 
-    }).then(function () {
+    }).then(function () {        
         LINE_login_state_timer_fun = function () {
             if (liff.isLoggedIn()) {
                 clearInterval(LINE_login_state_timer);
                 var user = liff.getDecodedIDToken();
-                var memberJson = { 'id': 'line' + user.sub, 'name': user.name, 'cartNum': 0, 'platform': 'line', 'gender': '0', 'email': user.email, 'birthday': '1935/01/01', 'pictureUrl': user.picture };
-                LINE_sql_load(memberJson);
+                console.log(user);;
+                try {
+                    
+                    var memberJson = { 'id': 'line' + user.sub, 'name': user.name, 'cartNum': 0, 'platform': 'line', 'gender': '0', 'email': user.email, 'birthday': '1935/01/01', 'pictureUrl': user.picture };
+
+                    if (enableLocalLogin)
+                        LINE_Offline_login(memberJson);
+                    else
+                        LINE_sql_load(memberJson);
+                    
+                    console.log(memberJson);
+                }
+                catch
+                {
+                    liff.logout();
+                    alert("抓不到資料");
+                   
+                }
+                
+               
+
             }
         }
     }).catch(function (error) {
@@ -322,51 +359,59 @@ function doSignOut() {
     loading.Startup()
     var platform = member.platform;
     member.dataClear();
-
-    if (platform == "fb") {
-        FB.getLoginStatus(function (response) {//取得目前user是否登入FB網站
-            console.log(response);
-            if (response.status === 'connected') {
-
-                FB.api("/me/permissions", "DELETE", function (response) {
-                    console.log("刪除結果");
-                    console.log(response); //gives true on app delete success
-                    //最後一個參數傳遞true避免cache
-                    FB.getLoginStatus(function (res) {
-                        loading.TaskSub()
-                        top.location.href = '/';
-                    }, true);//強制刷新cache避免login status下次誤判
-
-                });
-
-            } else {
-                console.log("無法刪除FB App");
-            }
-
-        });
+    if (enableLocalLogin)
+    {
+        if (liff.isLoggedIn()) {
+            liff.logout();
+            loading.TaskSub()
+            top.location.href = '/';
+        }
     }
-    else if (platform == "line") {
-        liff.init({
-            liffId: '2002691476-KlYvJ5j8'
+     else {
+        if (platform == "fb") {
+            FB.getLoginStatus(function (response) {//取得目前user是否登入FB網站
+                console.log(response);
+                if (response.status === 'connected') {
 
-        }).then(function () {
+                    FB.api("/me/permissions", "DELETE", function (response) {
+                        console.log("刪除結果");
+                        console.log(response); //gives true on app delete success
+                        //最後一個參數傳遞true避免cache
+                        FB.getLoginStatus(function (res) {
+                            loading.TaskSub()
+                            top.location.href = '/';
+                        }, true);//強制刷新cache避免login status下次誤判
 
-            if (liff.isLoggedIn()) {
-                liff.logout();
-                loading.TaskSub()
-                top.location.href = '/';
-            }
+                    });
 
-        }).catch(function (error) {
-            console.log(error);
-        });
+                } else {
+                    console.log("無法刪除FB App");
+                }
 
+            });
+        }
+        else if (platform == "line") {
+            liff.init({
+                liffId: '2002691476-KlYvJ5j8'
+
+            }).then(function () {
+
+                if (liff.isLoggedIn()) {
+                    liff.logout();
+                    loading.TaskSub()
+                    top.location.href = '/';
+                }
+
+            }).catch(function (error) {
+                console.log(error);
+            });
+
+        }
+        else {
+            loading.TaskSub()
+            top.location.href = '/';
+        }
     }
-    else {
-        loading.TaskSub()
-        top.location.href = '/';
-    }
-
 }
 
 function getWindowSizeString() {

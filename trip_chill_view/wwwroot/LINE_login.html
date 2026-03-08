@@ -14,17 +14,18 @@
                 liffId: liffID
 
             }).then(function () {
-                console.log('LIFF init');
+                //liff.logout();
                 if (!liff.isLoggedIn()) {
-                    liff.login({ redirect_uri: '' }).then(function () {
+                    liff.login({ redirect_uri: '/' }).then(function () {
                         alert('hh');
-
                     });
                 }
-                else                   
-                    window.close();
+                else {
+                   window.close();
+                }
 
             }).catch(function (error) {
+                alert('登入失敗');
                 console.log(error);
             });
         }

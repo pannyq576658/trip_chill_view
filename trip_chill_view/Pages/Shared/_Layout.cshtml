@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - trip_chill_view</title>
+    @using Microsoft.Extensions.Configuration
+    @inject IConfiguration Configuration
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
@@ -29,7 +31,7 @@
     <script src="~/js/loading.js"></script>
     <script src="~/js/member.js"></script>
     <script src="~/js/RegularExpression.js"></script>
-    <script src="~/js/numberComma.js"></script> 
+    <script src="~/js/numberComma.js"></script>
     <style>
         @@media (min-width: 576px) {
             .p-sm-3 {
@@ -134,11 +136,11 @@
         });
     </script>
     <script>
+        const enableLocalLogin = @Configuration["AppSettings:EnableLocalLoginMode"]?.ToLower() ?? "false";
+
         member = new member();
         loading = new loading();
-        // var route = 'https://tripviewbackend240306.azurewebsites.net'
-        var route = 'https://localhost:44374'
-
+        var route = '@Configuration["AppSettings:route"]';
         $(function () {
             if (loading.loadingTask == 0)
                 loading.Startup();
