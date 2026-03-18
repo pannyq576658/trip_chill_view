@@ -38,15 +38,35 @@ namespace trip_chill_backend_test.Controllers
             return apiResult;
         }
         //會員純登入
-        [HttpGet("{id}/{pwd}")]
-        public ApiResult<member> Get(string id, string pwd)
+        /*  [HttpGet("{id}/{pwd}")]
+          public ApiResult<member> Get(string id, string pwd)
+          {
+              ApiResult<member> apiResult = new ApiResult<member>();
+              try
+              {
+                  member memberData = _service.loginHasPwd(id,pwd);
+                  apiResult.Status = 1;
+                  apiResult.Msg = "取得資料";
+                  apiResult.Data = memberData;
+              }
+              catch (Exception ex)
+              {
+                  apiResult.Status = 0;
+                  apiResult.Msg = ex.Message;
+              }
+              return apiResult;
+          }*/
+
+        //會員登入 (改用 POST 並在 Body 傳遞資料)
+        [HttpPost("login")]
+        public ApiResult<member> Login([FromBody] LoginRequest request)
         {
             ApiResult<member> apiResult = new ApiResult<member>();
             try
             {
-                member memberData = _service.loginHasPwd(id,pwd);
+                member memberData = _service.loginHasPwd(request.id, request.password);
                 apiResult.Status = 1;
-                apiResult.Msg = "取得資料";
+                apiResult.Msg = "登入成功";
                 apiResult.Data = memberData;
             }
             catch (Exception ex)

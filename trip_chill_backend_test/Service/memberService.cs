@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using trip_chill_backend_test.Dao;
 using trip_chill_backend_test.model;
+using BCrypt.Net;
 namespace trip_chill_backend_test.Service
 {
     public class memberService
@@ -11,7 +12,6 @@ namespace trip_chill_backend_test.Service
         MemberDao _Dao = new MemberDao();
         public member login(string id)
         {
-            sql SQL = new sql();
             if (_Dao.member_find(id) == "0")
             {
                 throw new Exception("請去註冊");
@@ -23,7 +23,7 @@ namespace trip_chill_backend_test.Service
             }
         }
 
-        public member loginHasPwd(string id,string pwd)
+        /*public member loginHasPwd(string id,string pwd)
         {
             if (_Dao.member_find(id) == "0")
             {
@@ -39,12 +39,32 @@ namespace trip_chill_backend_test.Service
                 return m;
             }
             
+        }*/
+        public member loginHasPwd(string id, string pwd)
+        {
+            if (_Dao.member_find(id) == "0")
+            {
+                throw new Exception("請去註冊");
+            }
+
+            member m = _Dao.member_find_data(id);
+            if (m == null || !BCrypt.Net.BCrypt.Verify(pwd, m.password))
+            {
+                throw new Exception("請檢查密碼是否正確");
+            }
+
+            return m;
         }
         public string insertMember(member Member)
         {
-            sql SQL = new sql();
             if (_Dao.member_find(Member.id) == "0")
             {
+                // 密碼雜湊
+                if (!string.IsNullOrEmpty(Member.password))
+                {
+                    Member.password = BCrypt.Net.BCrypt.HashPassword(Member.password);
+                }
+
                 _Dao.member_insert(Member);
                 return "註冊成功";
             }

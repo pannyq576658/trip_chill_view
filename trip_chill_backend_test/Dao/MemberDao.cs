@@ -53,11 +53,12 @@ namespace trip_chill_backend_test.Dao
             m.email = reader[5].ToString();
             m.birthday = reader[6].ToString();
             m.pictureUrl = reader[7].ToString();
+            m.password = reader["password"].ToString();
             reader.Close();
             //sqlConnection.Close();
             return m;
         }      
-        public string member_find_hasPwd(string id, string pwd)
+       /* public string member_find_hasPwd(string id, string pwd)
         {
 
             String sqlString = $@"select COUNT(*) from member where id=@id and password=@password";
@@ -99,7 +100,7 @@ namespace trip_chill_backend_test.Dao
             reader.Close();
             //sqlConnection.Close();
             return m;
-        }
+        }*/
         public void member_insert(member value)
         {
             //將sql語法組成字串

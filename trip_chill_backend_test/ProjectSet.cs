@@ -21,7 +21,7 @@ namespace trip_chill_backend_test
                 .Build();
 
             Route = config["AppSettings:route"];
-            connectString = config["AppSettings:connectString"];
+            connectString = config.GetConnectionString("DefaultConnection");
         }
     }
 }

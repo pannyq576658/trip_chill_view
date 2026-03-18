@@ -119,7 +119,7 @@ function doLogin() {
     else if (location.pathname == '/login') {
         var user_id = $('#login_iUid').val();
         var pwd = $('#login_iPwd').val();
-        $.get(route + '/api/member/' + user_id + '/' + pwd).done(function (result, textStatus, jqXHR) {
+       /* $.get(route + '/api/member/' + user_id + '/' + pwd).done(function (result, textStatus, jqXHR) {
             if (result.msg == "請去註冊") {
                 alert("你還沒註冊");
                 top.location.href = '/register';
@@ -132,6 +132,28 @@ function doLogin() {
                 top.location.href = document.referrer;
             }
            
+        });*/
+        $.ajax({
+            url: route + '/api/member/login',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ id: user_id, password: pwd }),
+            success: function (result) {
+                if (result.status == 0) {
+                    alert(result.msg);
+                    if (result.msg == "請去註冊") {
+                        top.location.href = '/register';
+                    }
+                }
+                else {
+                    member.setData(result.data);
+                    alert("登入成功");
+                    top.location.href = document.referrer;
+                }
+            },
+            error: function () {
+                alert("登入發生錯誤，請稍後再試");
+            }
         });
     }
 
