@@ -26,11 +26,7 @@
             </a>
         </div>
     </div>`;
-var productJson = [{ 'background': 'https://gjundisk01.blob.core.windows.net/it360/Video/6f066eb7e38b42dab40a769f9946cf1c.jpg', 'name': 'Java 11 1Z0-819認證考試解題技巧', 'price': 3600 },
-{ 'background': 'https://gjundisk01.blob.core.windows.net/it360/Video/f239fd3d5c0e46be839389b3055508d5.png', 'name': '新手作家獲利： 網路小說上架變現的關鍵思維', 'price': 2000 },
-{ 'background': 'https://gjundisk01.blob.core.windows.net/it360/Video/7cc469104092464182808bf783dd327c.jpg', 'name': 'ChatGpt魔法', 'price': 750 },
-{ 'background': 'https://gjundisk01.blob.core.windows.net/it360/Video/975cdbe6c41a4d3f910d11fa8652b048.png', 'name': '如何順利找到喜歡的工作，幫助你更認識自己的7個問題', 'price': 1500 },
-    { 'background': 'https://gjundisk01.blob.core.windows.net/it360/Video/22190ef718bc4e108f0800b9dd826733.jpg', 'name': 'Excel VBA初階概念：入門超easy，工作效率翻倍提升', 'price': 1800 }];
+var productJson = [];
 var cartAddHtml = `<a href="javascript:checkOutTracker(true);">
     <div class="more-button3"><i class="fas fa-shopping-cart pr-2"></i>已在購物車, 結帳去</div>
 </a >`;
@@ -41,7 +37,6 @@ var fa_angle_left = false;
 var fa_angle_right = false;
 var page_link_last = false;
 var page_link_next = false;
-//var total_page1 = 9;
 function page(num) {
     if (loading.loadingTask == 0)
         loading.Startup();
@@ -68,15 +63,12 @@ function page_left() {
     if (currentlyPage % 5 == 1)
         listDP_element(--layer_page);
    // currentlyPage--;
-    page(num-1);
-    
-    
+    page(num-1);    
 }
 function page_right() {
     var num = Number($('#ctl00_ContentPlaceHolder1_listDP .page-link-color').text());
     if (currentlyPage % 5 == 0)
         listDP_element(++layer_page);
-
   //  currentlyPage++;
     page(num+1);    
 }
@@ -84,13 +76,11 @@ function page_next() {
     listDP_element(++layer_page);
     currentlyPage = layer_page * 5 + 1;
     page(currentlyPage);
-
 }
 function page_last() {
     listDP_element(--layer_page);
     currentlyPage = layer_page * 5 + 1;
     page(currentlyPage);
-
 }
 function listDP_element(layer_page) {
     var html =`<a class="page-link  fas fa-angle-left" href="javascript:page_left()"></a>&nbsp;
@@ -181,9 +171,7 @@ function mainProductRun() {
         page_link_next = true;
         page(currentlyPage);       
         loading.TaskSub()
-    });
-    
-    
+    });        
 }
 function mainProductDetailRun(parameter) {
     loading.TaskAdd()

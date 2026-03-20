@@ -110,9 +110,7 @@ var hisOrderProdElement = `<span id="[productID]_detail">
             </div>
         </div>
         <hr class="my-sm-0 my-3"></span>`;
-var orderJson = [{ 'id': '2021120500000012', 'name': '11111111', 'date': '2021/12/05', 'state': '付款(扣點)完成', 'price': '2,200' },
-{ 'id': '2021120500000017', 'name': '2222222222', 'date': '2022/03/05', 'state': '付款(扣點)完成', 'price': '7,200' },
-    { 'id': '2021120500000018', 'name': '44444444444', 'date': '2023/11/05', 'state': '付款(扣點)完成', 'price': '700' }];
+var orderJson = [];
 function mainOrderRun() {    
     loading.TaskAdd()
     $('#OrderList .row').empty();

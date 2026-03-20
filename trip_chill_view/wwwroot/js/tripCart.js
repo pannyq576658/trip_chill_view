@@ -139,11 +139,7 @@ var payOrderItemElement = `<div class="py-3 px-2 bundling_" style="background: #
     </div>`
 var cartTotalPrice = 0;
 var cartTotalProductNum = 0;
-var cartJson = [{ 'image': 'https://gjundisk01.blob.core.windows.net/it360/Video/6487b1b168804b46b6f4a4cb85701eed.jpg', 'name': '一學老師傳授手機影片快剪輯操作', 'type': '服務', 'price': 1250 },
-{ 'image': 'https://gjundisk01.blob.core.windows.net/it360/Video/ed38be020e5b4b05b320c56bcc515dce.jpg', 'name': 'Unreal Engine 5｜9小時從魔幻場景邁向遊戲設計師', 'type': '諮詢', 'price': 1850 },
-{ 'image': 'https://gjundisk01.blob.core.windows.net/it360/Video/9dc3c68f47a04506b79c8cba0a59853f.jpg', 'name': '從零開始的剪輯師生活｜Premiere Pro基礎與剪輯技巧', 'type': '服務', 'price': 2200 },
-{ 'image': 'https://gjundisk01.blob.core.windows.net/it360/Video/9dc3c68f47a04506b79c8cba0a59853f.jpg', 'name': '海外工作經驗談', 'type': '講座', 'price': 827 },
-    { 'image': 'https://gjundisk01.blob.core.windows.net/it360/Video/9dc3c68f47a04506b79c8cba0a59853f.jpg', 'name': '一個人流浪疑難雜症', 'type': '諮詢', 'price': 1140 }];
+var cartJson = [];
 var cartPayJson = []
 function update_cart_total(TotalNum, TotalPrice) {
     $('#totalPrice').text('NT$' + AppendComma(TotalPrice));
@@ -295,7 +291,7 @@ function lnkBtnGoPaymentClick() {
     });
    
 }
-var ee = `<div class="container mb-5">
+var orderNoFind = `<div class="container mb-5">
 <div class="row">
     <div class="col-lg-5 col-12 mx-auto text-center">
         <div class="col-group-title-purchase-history-01">
@@ -352,7 +348,6 @@ function mainCartPayRun() {
                    if (Result.status == 0)
                        alert(Result.message)
                    else if (Result.status == 1) {
-                       //alert(Result.message);
                        location.href = Result.message;
                    }
                }
