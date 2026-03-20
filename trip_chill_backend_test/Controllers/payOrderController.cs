@@ -24,12 +24,12 @@ namespace trip_chill_backend_test.Controllers
         }
         [HttpGet]
         [Route("[action]/{payOrderID}")]
-        public ApiResult<bool> payOrderExist(string payOrderID)
+        public async Task<ApiResult<bool>> payOrderExist(string payOrderID)
         {
             ApiResult<bool> apiResult = new ApiResult<bool>();
             try
             {
-                bool result = _service.payOrderExist(payOrderID);
+                bool result = await _service.payOrderExist(payOrderID);
                 apiResult.Status = 1;
                 apiResult.Msg = "取得資料";
                 apiResult.Data = result;
@@ -44,7 +44,7 @@ namespace trip_chill_backend_test.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public OrderResultModel setContact_and_goToPay([FromBody] payOrderContect payOrderContect)
+        public async Task<OrderResultModel> setContact_and_goToPay([FromBody] payOrderContect payOrderContect)
         {
             
             //檢查訂單資料是否正確
@@ -67,7 +67,7 @@ namespace trip_chill_backend_test.Controllers
             {
                 try
                 {
-                    string result = _service.setContact_and_goToPay(payOrderContect);
+                    string result = await _service.setContact_and_goToPay(payOrderContect);
                     return new OrderResultModel { Status = 1, Message = result };
                 }
                 catch (Exception ex)
@@ -80,12 +80,12 @@ namespace trip_chill_backend_test.Controllers
 
         // GET api/<payOrderController>/5
         [HttpGet("{payOrderID}")]
-        public ApiResult<List<payOrderProduct>> Get(string payOrderID)
+        public async Task<ApiResult<List<payOrderProduct>>> Get(string payOrderID)
         {
             ApiResult<List<payOrderProduct>> apiResult = new ApiResult<List<payOrderProduct>>();
             try
             {
-                List<payOrderProduct> result = _service.getOrderProductList(payOrderID);
+                List<payOrderProduct> result = await _service.getOrderProductList(payOrderID);
                 apiResult.Status = 1;
                 apiResult.Msg = "取得資料";
                 apiResult.Data = result;

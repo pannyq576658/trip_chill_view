@@ -12,49 +12,48 @@ namespace trip_chill_backend_test.Service
         BaseDao baseDao = new BaseDao();
         PayOrderDao payOrderDao = new PayOrderDao();
         ProjectSet Project_Set = new ProjectSet();
-        public bool payOrderExist(string payOrderID)
+        
+        public async Task<bool> payOrderExist(string payOrderID)
         {
-            bool OrderExist = payOrderDao.OrderExist("payOrderID", payOrderID);
-            return OrderExist;
+            return await payOrderDao.OrderExist("payOrderID", payOrderID);
         }
-
-        public string setContact_and_goToPay(payOrderContect payOrderContect)
+        public async Task<string> setContact_and_goToPay(payOrderContect payOrderContect)
         {
-            int id = baseDao.get_tableID("payOrder");
+            int id = await baseDao.get_tableID("payOrder");
             string payOrderID = "payOrder" + id;
-            if (!payOrderDao.OrderExist("ownerID", payOrderContect.ownerID))
+            if (!await payOrderDao.OrderExist("ownerID", payOrderContect.ownerID))
             {
                 id++;
                 payOrderID = "payOrder" + id;
-                payOrderDao.insertOrder(payOrderID, payOrderContect);
-                baseDao.update_tableID("payOrder", id);
+                await payOrderDao.insertOrder(payOrderID, payOrderContect);
+                await baseDao.update_tableID("payOrder", id);
                 foreach (string cartID in payOrderContect.cartItem)
                 {
-                    int payOrderProduct_id = baseDao.get_tableID("payOrderProduct") + 1;
+                    int payOrderProduct_id = await baseDao.get_tableID("payOrderProduct") + 1;
                     string payOrderProductId = "payOrderProduct" + payOrderProduct_id;
-                    payOrderDao.insertOrderProduct(payOrderID, payOrderProductId, cartID);
-                    baseDao.update_tableID("payOrderProduct", payOrderProduct_id);
+                    await payOrderDao.insertOrderProduct(payOrderID, payOrderProductId, cartID);
+                    await baseDao.update_tableID("payOrderProduct", payOrderProduct_id);
                 }
             }
             else
             {
-                payOrderDao.deleteOrderProduct(payOrderID);
+                await payOrderDao.deleteOrderProduct(payOrderID);
                 foreach (string cartID in payOrderContect.cartItem)
                 {
-                    int payOrderProduct_id = baseDao.get_tableID("payOrderProduct") + 1;
+                    int payOrderProduct_id = await baseDao.get_tableID("payOrderProduct") + 1;
                     string payOrderProductId = "payOrderProduct" + payOrderProduct_id;
-                    payOrderDao.insertOrderProduct(payOrderID, payOrderProductId, cartID);
-                    baseDao.update_tableID("payOrderProduct", payOrderProduct_id);
+                    await payOrderDao.insertOrderProduct(payOrderID, payOrderProductId, cartID);
+                    await baseDao.update_tableID("payOrderProduct", payOrderProduct_id);
                 }
-
             }
             return Project_Set.Route + "/goToPay/Index?payOrderID=" + payOrderID + "@" + DateTime.Now.ToString("ddhmmss");
         }
-        public List<payOrderProduct> getOrderProductList(string payOrderID)
+           
+        public async Task<List<payOrderProduct>> getOrderProductList(string payOrderID)
         {
-            List<payOrderProduct> payOrderProductList = payOrderDao.getOrderProductList(payOrderID);
+            List<payOrderProduct> payOrderProductList = await payOrderDao.getOrderProductList(payOrderID);
             return payOrderProductList;
         }
 
-}
+    }
 }

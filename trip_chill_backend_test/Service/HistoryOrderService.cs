@@ -11,25 +11,26 @@ namespace trip_chill_backend_test.Service
     {
         PayOrderDao payOrderDao = new PayOrderDao();
         HistoryOrderDao historyOrderDao = new HistoryOrderDao();
-        public List<payOrder> getPayOrder(string ownerID)
+        public async Task<List<payOrder>> getPayOrder(string ownerID)
         {
-            List<payOrder> payOrderList = payOrderDao.getPayOrder(ownerID);
+            List<payOrder> payOrderList = await payOrderDao.getPayOrder(ownerID);
             return payOrderList;
         }
 
-        public List<product> getHisOrderProductList(string payOrderID)
+        public async Task<List<product>> getHisOrderProductList(string payOrderID)
         {
-            List<product> HisOrderProductList = historyOrderDao.getHisOrderProduct(payOrderID);
+            List<product> HisOrderProductList = await historyOrderDao.getHisOrderProduct(payOrderID);
             return HisOrderProductList;
         }
 
-        public payOrderReturn getPayOrderReturn(string retrunCode)
+        public async Task<payOrderReturn> getPayOrderReturn(string retrunCode)
         {
-            payOrderReturn payOrderReturn = historyOrderDao.getPayOrderReturn(retrunCode);
+            payOrderReturn payOrderReturn = await historyOrderDao.getPayOrderReturn(retrunCode);
             if (payOrderReturn.hasData)
-                historyOrderDao.updatePayOrderReturn(retrunCode);
+                await historyOrderDao.updatePayOrderReturn(retrunCode);
             return payOrderReturn;
         }
-
+       
+               
     }
 }

@@ -19,12 +19,12 @@ namespace trip_chill_backend_test.Controllers
         HistoryOrderService _service = new HistoryOrderService();
         // GET api/<historyOrderController>/5
         [HttpGet("{ownerID}")]
-        public ApiResult<List<payOrder>> Get(string ownerID)
+        public async Task<ApiResult<List<payOrder>>> Get(string ownerID)
         {
             ApiResult<List<payOrder>> apiResult = new ApiResult<List<payOrder>>();
             try
             {
-                List<payOrder> result = _service.getPayOrder(ownerID);
+                List<payOrder> result = await _service.getPayOrder(ownerID);
                 apiResult.Status = 1;
                 apiResult.Msg = "取得資料";
                 apiResult.Data = result;
@@ -40,12 +40,12 @@ namespace trip_chill_backend_test.Controllers
 
         [HttpGet]
         [Route("[action]/{payOrderID}")]
-        public ApiResult<List<product>> getHisOrderProductList(string payOrderID)
+        public async Task<ApiResult<List<product>>> getHisOrderProductList(string payOrderID)
         {
             ApiResult<List<product>> apiResult = new ApiResult<List<product>>();
             try
             {
-                List<product> result = _service.getHisOrderProductList(payOrderID);
+                List<product> result = await _service.getHisOrderProductList(payOrderID);
                 apiResult.Status = 1;
                 apiResult.Msg = "取得資料";
                 apiResult.Data = result;
@@ -60,7 +60,7 @@ namespace trip_chill_backend_test.Controllers
 
         [HttpGet]
         [Route("[action]/{retrunCode}")]
-        public ApiResult<payOrderReturn> getPayOrderReturn(string retrunCode)
+        public async Task<ApiResult<payOrderReturn>> getPayOrderReturn(string retrunCode)
         {
             ApiResult<payOrderReturn> apiResult = new ApiResult<payOrderReturn>();
             if (string.IsNullOrWhiteSpace(retrunCode))
@@ -71,7 +71,7 @@ namespace trip_chill_backend_test.Controllers
 
             try
             {
-                payOrderReturn result = _service.getPayOrderReturn(retrunCode);
+                payOrderReturn result = await _service.getPayOrderReturn(retrunCode);
                 apiResult.Status = 1;
                 apiResult.Msg = "取得資料";
                 apiResult.Data = result;

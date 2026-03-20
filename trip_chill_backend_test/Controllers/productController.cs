@@ -17,12 +17,12 @@ namespace trip_chill_backend_test.Controllers
         ProductService _service = new ProductService();
         // GET: api/<productController>
         [HttpGet]
-        public ApiResult<List<product>> Get()
+        public async Task<ApiResult<List<product>>> Get()
         {
             ApiResult<List<product>> apiResult = new ApiResult<List<product>>();
             try
             {
-                List<product> result = _service.getProductList();
+                List<product> result = await _service.getProductList();
                 apiResult.Status = 1;
                 apiResult.Msg = "取得資料";
                 apiResult.Data = result;              
@@ -37,12 +37,12 @@ namespace trip_chill_backend_test.Controllers
 
         // GET api/<productController>/5
         [HttpGet("{id}")]
-        public ApiResult<List<product>> Get(int id)
+        public async Task<ApiResult<List<product>>> Get(int id)
         {
             ApiResult<List<product>> apiResult = new ApiResult<List<product>>();
             try
             {
-                List<product> result = _service.getProductRange(id);
+                List<product> result = await _service.getProductRange(id);
                 apiResult.Status = 1;
                 apiResult.Msg = "取得資料";
                 apiResult.Data = result;
@@ -56,12 +56,12 @@ namespace trip_chill_backend_test.Controllers
         }
 
           [Route("[action]/{ProductID}")]      
-          public ApiResult<product> getProduct(string ProductID)
+          public async Task<ApiResult<product>> getProduct(string ProductID)
           {
             ApiResult<product> apiResult = new ApiResult<product>();
             try
             {
-               product result = _service.getProduct(ProductID);
+               product result = await _service.getProduct(ProductID);
                apiResult.Status = 1;
                apiResult.Msg = "取得資料";
                apiResult.Data = result;
@@ -77,12 +77,12 @@ namespace trip_chill_backend_test.Controllers
 
         [HttpGet]
         [Route("[action]")]
-        public ApiResult<int> productNum()
+        public async Task<ApiResult<int>> productNum()
         {
             ApiResult<int> apiResult = new ApiResult<int>();
              try
              {
-                 int result = _service.productNum();
+                 int result = await _service.productNum();
                  apiResult.Status = 1;
                  apiResult.Msg = "取得資料";
                  apiResult.Data = result;

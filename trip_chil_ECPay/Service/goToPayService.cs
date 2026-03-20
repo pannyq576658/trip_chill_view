@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using trip_chil_ECPay.Dao;
 using trip_chil_ECPay.Logistics;
@@ -16,10 +17,10 @@ namespace trip_chil_ECPay.Service
         ProjectSet Project_Set = new ProjectSet();
         GoToPayDao _GoToPayDao = new GoToPayDao();
         BaseDao _BaseDao = new BaseDao();
-        public string EC_Page(string payOrderID,string DateTimeNumber)
+        public async Task<string> EC_Page(string payOrderID, string DateTimeNumber)
         {
             List<string> enErrors = new List<string>();          
-            List<payOrderProduct> payOrderProduct_List = _GoToPayDao.getOrderProductList(payOrderID);            
+            List<payOrderProduct> payOrderProduct_List = await _GoToPayDao.getOrderProductList(payOrderID);            
             try
             {
                 using (AllInOne oPayment = new AllInOne())
@@ -84,7 +85,7 @@ namespace trip_chil_ECPay.Service
 
             }
         }
-        public EC_reult_Model orderResult(string payOrderID)
+        public async Task<EC_reult_Model> orderResult(string payOrderID)
         {
             List<string> enErrors = new List<string>();
             Hashtable htFeedback = null;        
@@ -104,20 +105,20 @@ namespace trip_chil_ECPay.Service
                     string payOrder_ID = payOrderID.Split('@')[0];
                     string retrunCode = payOrderID + htFeedback["TradeNo"].ToString();
                     //把payOrder改成已購買並且加入購買時間
-                    _GoToPayDao.update_payOrder(payOrder_ID, retrunCode);
+                    await _GoToPayDao.update_payOrder(payOrder_ID, retrunCode);
                     //新增歷史訂單清單
-                    int historyPayOrderProductID = _BaseDao.get_tableID("historyPayOrderProduct") + 1;
-                    _GoToPayDao.insert_history_product(historyPayOrderProductID, payOrder_ID);
-                    _BaseDao.update_tableID("historyPayOrderProduct", historyPayOrderProductID);
+                    int historyPayOrderProductID = await _BaseDao.get_tableID("historyPayOrderProduct") + 1;
+                    await _GoToPayDao.insert_history_product(historyPayOrderProductID, payOrder_ID);
+                    await _BaseDao.update_tableID("historyPayOrderProduct", historyPayOrderProductID);
                     //更新產品的購買數
-                    _GoToPayDao.update_product_buyNum(payOrder_ID);
+                    await _GoToPayDao.update_product_buyNum(payOrder_ID);
                     //更新會員購物車的數量
-                    int payOrderProduct_COUNT = _GoToPayDao.payOrderProduct_COUNT(payOrder_ID);
-                    _GoToPayDao.update_Member_cartNum_after_pay(payOrder_ID, payOrderProduct_COUNT);
+                    int payOrderProduct_COUNT = await _GoToPayDao.payOrderProduct_COUNT(payOrder_ID);
+                    await _GoToPayDao.update_Member_cartNum_after_pay(payOrder_ID, payOrderProduct_COUNT);
                     //刪除購物車的資料
-                    _GoToPayDao.deleteCart_from_payOrder(payOrder_ID);
+                    await _GoToPayDao.deleteCart_from_payOrder(payOrder_ID);
                     //刪除訂單清單的資料
-                    _GoToPayDao.delete_payOrderProduct(payOrder_ID);
+                    await _GoToPayDao.delete_payOrderProduct(payOrder_ID);
 
                     return new EC_reult_Model { Status = 1, Redirect_url = Project_Set.Route + "/shoppingCart-return/" + retrunCode };
                 }
@@ -125,7 +126,7 @@ namespace trip_chil_ECPay.Service
                 {                 
                     string payOrder_ID = payOrderID.Split('@')[0];
                     string retrunCode = payOrderID + htFeedback["TradeNo"].ToString();
-                    _GoToPayDao.update_payOrder_error(payOrder_ID, retrunCode);
+                    await _GoToPayDao.update_payOrder_error(payOrder_ID, retrunCode);
                     return new EC_reult_Model { Status = 1, Redirect_url = Project_Set.Route + "/shoppingCart-return/" + retrunCode };
                 }
 

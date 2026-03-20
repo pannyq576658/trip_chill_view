@@ -8,23 +8,10 @@ namespace trip_chil_ECPay.Controllers
 {
     public class HomeController : Controller
     {
+        // GET: Hone
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return Content("這是首頁 (綠界金流測試中)");
         }
     }
 }

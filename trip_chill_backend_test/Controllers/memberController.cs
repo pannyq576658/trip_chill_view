@@ -20,12 +20,12 @@ namespace trip_chill_backend_test.Controllers
         // GET api/<memberController>/5
         //會員平台登入
         [HttpGet("{id}")]
-        public ApiResult<member> Get(string id)
+        public async Task<ApiResult<member>> Get(string id)
         {
             ApiResult<member> apiResult = new ApiResult<member>();
             try
             {
-                member memberData = _service.login(id);
+                member memberData = await _service.login(id);
                 apiResult.Status = 1;
                 apiResult.Msg = "取得資料";
                 apiResult.Data = memberData;              
@@ -37,34 +37,15 @@ namespace trip_chill_backend_test.Controllers
             }
             return apiResult;
         }
-        //會員純登入
-        /*  [HttpGet("{id}/{pwd}")]
-          public ApiResult<member> Get(string id, string pwd)
-          {
-              ApiResult<member> apiResult = new ApiResult<member>();
-              try
-              {
-                  member memberData = _service.loginHasPwd(id,pwd);
-                  apiResult.Status = 1;
-                  apiResult.Msg = "取得資料";
-                  apiResult.Data = memberData;
-              }
-              catch (Exception ex)
-              {
-                  apiResult.Status = 0;
-                  apiResult.Msg = ex.Message;
-              }
-              return apiResult;
-          }*/
-
+        
         //會員登入 (改用 POST 並在 Body 傳遞資料)
         [HttpPost("login")]
-        public ApiResult<member> Login([FromBody] LoginRequest request)
+        public async Task<ApiResult<member>> Login([FromBody] LoginRequest request)
         {
             ApiResult<member> apiResult = new ApiResult<member>();
             try
             {
-                member memberData = _service.loginHasPwd(request.id, request.password);
+                member memberData = await _service.loginHasPwd(request.id, request.password);
                 apiResult.Status = 1;
                 apiResult.Msg = "登入成功";
                 apiResult.Data = memberData;
@@ -81,12 +62,12 @@ namespace trip_chill_backend_test.Controllers
         //會員註冊
         [HttpPost]
         [Route("[action]")]       
-        public ApiResult<string> insertMember([FromBody] member Member)
+        public async Task<ApiResult<string>> insertMember([FromBody] member Member)
         {
             ApiResult<string> apiResult = new ApiResult<string>();
             try
             {
-                string result = _service.insertMember(Member);
+                string result = await _service.insertMember(Member);
                 apiResult.Status = 1;
                 apiResult.Msg = result;               
             }
@@ -100,12 +81,12 @@ namespace trip_chill_backend_test.Controllers
 
         [HttpPost]
         [Route("[action]")]
-        public ApiResult<string> updateMember([FromBody] member Member)
+        public async Task<ApiResult<string>> updateMember([FromBody] member Member)
         {
             ApiResult<string> apiResult = new ApiResult<string>();
             try
             {
-                string result = _service.updateMember(Member);
+                string result = await _service.updateMember(Member);
                 apiResult.Status = 1;
                 apiResult.Msg = result;
             }

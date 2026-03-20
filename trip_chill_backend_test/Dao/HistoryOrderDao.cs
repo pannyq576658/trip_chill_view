@@ -17,55 +17,83 @@ namespace trip_chill_backend_test.Dao
             //開啟連線
             sqlConnection.Open();
         }
-        public List<product> getHisOrderProduct(string payOrderID)
+        public async Task<List<product>> getHisOrderProduct(string payOrderID)
         {
             List<product> HisOrderProductList = new List<product>();
-            String sqlString = $@"select product.* from historyPayOrderProduct left join product on historyPayOrderProduct.productID=product.productID where historyPayOrderProduct.payOrderID=@payOrderID";
-            SqlCommand command = new SqlCommand(sqlString, sqlConnection);
-            command.Parameters.Add("@payOrderID", System.Data.SqlDbType.NVarChar);
-            command.Parameters["@payOrderID"].Value = payOrderID;
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            string sqlString = $@"select product.* from historyPayOrderProduct left join product on historyPayOrderProduct.productID=product.productID where historyPayOrderProduct.payOrderID=@payOrderID";
+
+            using (var sqlConnection = new SqlConnection(new ProjectSet().connectString))
             {
-                HisOrderProductList.Add(new product() { productID = reader[0].ToString(), name = reader[1].ToString(), type = reader[2].ToString(), price = int.Parse(reader[3].ToString()), background = reader[4].ToString(), buyTimeNum = int.Parse(reader[5].ToString()) });
+                await sqlConnection.OpenAsync();
+                using (var command = new SqlCommand(sqlString, sqlConnection))
+                {
+                    command.Parameters.Add("@payOrderID", System.Data.SqlDbType.NVarChar);
+                    command.Parameters["@payOrderID"].Value = payOrderID;
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            HisOrderProductList.Add(new product()
+                            {
+                                productID = reader[0].ToString(),
+                                name = reader[1].ToString(),
+                                type = reader[2].ToString(),
+                                price = int.Parse(reader[3].ToString()),
+                                background = reader[4].ToString(),
+                                buyTimeNum = int.Parse(reader[5].ToString())
+                            });
+                        }
+                    }
+                }
             }
-            reader.Close();
             return HisOrderProductList;
-        }
-        public payOrderReturn getPayOrderReturn(string retrunCode)
+        }           
+        public async Task<payOrderReturn> getPayOrderReturn(string retrunCode)
         {
             payOrderReturn Return = new payOrderReturn();
-            String sqlString = $@"select payOrderID,isPay from payOrder where retrunCode=@retrunCode";
-            SqlCommand command = new SqlCommand(sqlString, sqlConnection);
-            command.Parameters.Add("@retrunCode", System.Data.SqlDbType.NVarChar);
-            command.Parameters["@retrunCode"].Value = retrunCode;
-            SqlDataReader reader = command.ExecuteReader();
-            bool HasRows = reader.HasRows;
-            if (HasRows)
+            string sqlString = $@"select payOrderID,isPay from payOrder where retrunCode=@retrunCode";
+
+            using (var sqlConnection = new SqlConnection(new ProjectSet().connectString))
             {
-                reader.Read();
-                Return.hasData = true;
-                Return.payOrderID = reader[0].ToString();
-                Return.isPay = reader[1].ToString();
+                await sqlConnection.OpenAsync();
+                using (var command = new SqlCommand(sqlString, sqlConnection))
+                {
+                    command.Parameters.Add("@retrunCode", System.Data.SqlDbType.NVarChar);
+                    command.Parameters["@retrunCode"].Value = retrunCode;
+                    using (var reader = await command.ExecuteReaderAsync())
+                    {
+                        if (await reader.ReadAsync())
+                        {
+                            Return.hasData = true;
+                            Return.payOrderID = reader[0].ToString();
+                            Return.isPay = reader[1].ToString();
+                        }
+                        else
+                        {
+                            Return.hasData = false;
+                            Return.payOrderID = "";
+                            Return.isPay = "";
+                        }
+                    }
+                }
             }
-            else
-            {
-                Return.hasData = false;
-                Return.payOrderID = "";
-                Return.isPay = "";
-            }
-            reader.Close();
             return Return;
         }
-        public void updatePayOrderReturn(string retrunCode)
+        public async Task updatePayOrderReturn(string retrunCode)
         {
-            payOrderReturn Return = new payOrderReturn();
-            String sqlString = $@"update payOrder set retrunCode='' where retrunCode=@retrunCode";
-            SqlCommand command = new SqlCommand(sqlString, sqlConnection);
-            command.Parameters.Add("@retrunCode", System.Data.SqlDbType.NVarChar);
-            command.Parameters["@retrunCode"].Value = retrunCode;
-            int result = command.ExecuteNonQuery();
+            string sqlString = $@"update payOrder set retrunCode='' where retrunCode=@retrunCode";
+            using (var sqlConnection = new SqlConnection(new ProjectSet().connectString))
+            {
+                await sqlConnection.OpenAsync();
+                using (var command = new SqlCommand(sqlString, sqlConnection))
+                {
+                    command.Parameters.Add("@retrunCode", System.Data.SqlDbType.NVarChar);
+                    command.Parameters["@retrunCode"].Value = retrunCode;
+                    await command.ExecuteNonQueryAsync();
+                }
+            }
         }
+
 
     }
 }

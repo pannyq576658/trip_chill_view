@@ -12,82 +12,102 @@ namespace trip_chill_backend_test.Dao
         SqlConnection sqlConnection;
         ProjectSet Project_Set = new ProjectSet();
         public ProductDao()
-        {
-            sqlConnection = new SqlConnection(Project_Set.connectString);
-
-            //開啟連線
-            sqlConnection.Open();
-        }
-        public List<product> getProductList()
+        {           
+        }       
+        public async Task<List<product>> getProductList()
         {
             List<product> productArray = new List<product>();
-            product Product = new product();
-            String sqlString = $@"select * from product";
+            string sqlString = $@"select * from product";
 
-            SqlCommand command = new SqlCommand(sqlString, sqlConnection);
-
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            using (SqlConnection sqlConnection = new SqlConnection(Project_Set.connectString))
             {
-                productArray.Add(new product() { productID = reader[0].ToString(), name = reader[1].ToString(), type = reader[2].ToString(), price = int.Parse(reader[3].ToString()), background = reader[4].ToString(), buyTimeNum = int.Parse(reader[5].ToString()) });
+                await sqlConnection.OpenAsync();
+                using (SqlCommand command = new SqlCommand(sqlString, sqlConnection))
+                {
+                    using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            productArray.Add(new product() { productID = reader[0].ToString(), name = reader[1].ToString(), type = reader[2].ToString(), price = int.Parse(reader[3].ToString()), background = reader[4].ToString(), buyTimeNum = int.Parse(reader[5].ToString()) });
+                        }
+                    }
+                }
             }
-
-
-            reader.Close();
-            //sqlConnection.Close();
             return productArray;
         }
-        public List<product> getProductRange(int min, int max)
+        public async Task<List<product>> getProductRange(int min, int max)
         {
             List<product> productArray = new List<product>();
             String sqlString = $@"select TOP({max})* from product except SELECT TOP({min})* FROM product";
-
-            SqlCommand command = new SqlCommand(sqlString, sqlConnection);
-
-            SqlDataReader reader = command.ExecuteReader();
-            while (reader.Read())
+            using (SqlConnection sqlConnection = new SqlConnection(Project_Set.connectString))
             {
-                productArray.Add(new product() { productID = reader[0].ToString(), name = reader[1].ToString(), type = reader[2].ToString(), price = int.Parse(reader[3].ToString()), background = reader[4].ToString(), buyTimeNum = int.Parse(reader[5].ToString()) });
-            }
-
-
-            reader.Close();
-            //sqlConnection.Close();
+                await sqlConnection.OpenAsync();
+                using (SqlCommand command = new SqlCommand(sqlString, sqlConnection))
+                {
+                    using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            productArray.Add(new product() { productID = reader[0].ToString(), name = reader[1].ToString(), type = reader[2].ToString(), price = int.Parse(reader[3].ToString()), background = reader[4].ToString(), buyTimeNum = int.Parse(reader[5].ToString()) });
+                        }
+                    }
+                }
+            }           
             return productArray;
         }
-        public product getProduct(string productID)
+        public async Task<product> getProduct(string productID)
         {
 
-            product Product = new product();
-            String sqlString = $@"select * from product where productID=@productID ";
+            product Product = null; // 1. 初始化為 null
+            string sqlString = @"SELECT * FROM product WHERE productID = @productID";
 
-            SqlCommand command = new SqlCommand(sqlString, sqlConnection);
-            command.Parameters.Add("@productID", System.Data.SqlDbType.NVarChar);
-            command.Parameters["@productID"].Value = productID;
-            SqlDataReader reader = command.ExecuteReader();
+            // 2. 使用 using 確保連線被正確關閉
+            using (var sqlConnection = new SqlConnection(new ProjectSet().connectString))
+            {
+                await sqlConnection.OpenAsync(); // 3. 非同步開啟連線
+                using (var command = new SqlCommand(sqlString, sqlConnection))
+                {
+                    command.Parameters.AddWithValue("@productID", productID);
 
-            reader.Read();
-            Product.productID = reader[0].ToString();
-            Product.name = reader[1].ToString();
-            Product.type = reader[2].ToString();
-            Product.price = int.Parse(reader[3].ToString());
-            Product.background = reader[4].ToString();
-            Product.buyTimeNum = int.Parse(reader[5].ToString());
-            reader.Close();
-            //sqlConnection.Close();
+                    using (var reader = await command.ExecuteReaderAsync()) // 4. 非同步執行查詢
+                    {
+                        if (await reader.ReadAsync()) // 5. 非同步讀取資料
+                        {
+                            Product = new product()
+                            {
+                                // 6. 建議使用欄位名稱，而不是索引
+                                productID = reader["productID"].ToString(),
+                                name = reader["name"].ToString(),
+                                type = reader["type"].ToString(),
+                                price = Convert.ToInt32(reader["price"]),
+                                background = reader["background"].ToString(),
+                                buyTimeNum = Convert.ToInt32(reader["buyTimeNum"])
+                            };
+                        }
+                    }
+                }
+            }
+            
             return Product;
         }
 
-        public int productNum()
+        public async Task<int> productNum()
         {
+            int n = 0;
             String sqlString = $@"select count(*) from product";
 
-            SqlCommand command = new SqlCommand(sqlString, sqlConnection);
-
-            SqlDataReader reader = command.ExecuteReader();
-            reader.Read();
-            int n = int.Parse(reader[0].ToString());
-            reader.Close();
+            using (SqlConnection sqlConnection = new SqlConnection(Project_Set.connectString))
+            {
+                await sqlConnection.OpenAsync();
+                using (SqlCommand command = new SqlCommand(sqlString, sqlConnection))
+                {
+                    using (SqlDataReader reader = await command.ExecuteReaderAsync())
+                    {
+                        await reader.ReadAsync();
+                        n = int.Parse(reader[0].ToString());
+                    }
+                }
+            }
             return n;
         }
 
