@@ -27,5 +27,7 @@ namespace trip_chill_backend_test.model
 
         public string phone { get; set; }
 
+        public bool VerifyApproved { get; set; }
+
     }
 }

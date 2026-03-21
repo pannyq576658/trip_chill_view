@@ -62,7 +62,9 @@ namespace trip_chill_backend_test.Dao
                             m.email = reader[5].ToString();
                             m.birthday = reader[6].ToString();
                             m.pictureUrl = reader[7].ToString();
+                            m.VerifyApproved = (bool)reader["VerifyApproved"];
                             m.password = reader["password"].ToString();
+                            
                             return m;
                         }
                     }
@@ -72,8 +74,8 @@ namespace trip_chill_backend_test.Dao
         }
         public async Task member_insert(member value)
         {
-            string sqlString = $@"insert into member (id, name, cartNum,platform,gender,email,birthday,pictureUrl,password,phone)
-                          values(@id,@name,@cartNum,@platform,@gender,@email,@birthday,@pictureUrl,@password,@phone)";
+            string sqlString = $@"insert into member (id, name, cartNum,platform,gender,email,birthday,pictureUrl,password,phone,VerifyApproved)
+                          values(@id,@name,@cartNum,@platform,@gender,@email,@birthday,@pictureUrl,@password,@phone,@VerifyApproved)";
 
             using (var sqlConnection = new SqlConnection(new ProjectSet().connectString))
             {
@@ -100,6 +102,8 @@ namespace trip_chill_backend_test.Dao
                     command.Parameters["@password"].Value = (value.password is null) ? "" : value.password;
                     command.Parameters.Add("@phone", System.Data.SqlDbType.NVarChar);
                     command.Parameters["@phone"].Value = (value.phone is null) ? "" : value.phone;
+                    command.Parameters.Add("@VerifyApproved", System.Data.SqlDbType.Bit);
+                    command.Parameters["@VerifyApproved"].Value = 0;
                     await command.ExecuteNonQueryAsync();
                 }
             }
@@ -128,6 +132,76 @@ namespace trip_chill_backend_test.Dao
                     command.Parameters.Add("@id", System.Data.SqlDbType.NVarChar);
                     command.Parameters["@id"].Value = value.id;
                     await command.ExecuteNonQueryAsync();
+                }
+            }
+        }
+        public async Task UpdateVerifyCode(string userId, string code)
+        {
+            // 建議在 member 資料表增加 VerifyCode 與 VerifyCodeTime 欄位
+            string sql = "UPDATE member SET VerifyCode = @code, VerifyCodeTime = GETDATE() WHERE id = @id";
+            using (var sqlConnection = new SqlConnection(new ProjectSet().connectString))
+            {
+                await sqlConnection.OpenAsync();
+                using (var command = new SqlCommand(sql, sqlConnection))
+                {                                     
+                    command.Parameters.Add("@id", System.Data.SqlDbType.NVarChar);
+                    command.Parameters["@id"].Value = userId;
+                    command.Parameters.Add("@code", System.Data.SqlDbType.NVarChar);
+                    command.Parameters["@code"].Value = code;
+                    await command.ExecuteNonQueryAsync();
+                }
+            }
+
+        }
+        public async Task clearVerifyCode(string userId)
+        {          
+            string sql = "UPDATE member SET VerifyCode = NULL, VerifyCodeTime = NULL WHERE id = @id";
+            using (var sqlConnection = new SqlConnection(new ProjectSet().connectString))
+            {
+                await sqlConnection.OpenAsync();
+                using (var command = new SqlCommand(sql, sqlConnection))
+                {
+                    command.Parameters.Add("@id", System.Data.SqlDbType.NVarChar);
+                    command.Parameters["@id"].Value = userId;
+                    await command.ExecuteNonQueryAsync();
+                }
+            }
+
+        }
+        public async Task VerifyApproved(string userId)
+        {
+            string sql = "UPDATE member SET VerifyApproved = 1 WHERE id = @id";
+            using (var sqlConnection = new SqlConnection(new ProjectSet().connectString))
+            {
+                await sqlConnection.OpenAsync();
+                using (var command = new SqlCommand(sql, sqlConnection))
+                {
+                    command.Parameters.Add("@id", System.Data.SqlDbType.NVarChar);
+                    command.Parameters["@id"].Value = userId;
+                    await command.ExecuteNonQueryAsync();
+                }
+            }
+
+        }
+        public async Task<bool> VerifyEmailCode(string userId, string code)
+        {         
+            string sqlString = @"
+        SELECT COUNT(*) 
+        FROM member 
+        WHERE id = @id 
+          AND VerifyCode = @code 
+          AND DATEDIFF(MINUTE, VerifyCodeTime, GETDATE()) <= 3";
+
+            using (var sqlConnection = new SqlConnection(new ProjectSet().connectString))
+            {
+                await sqlConnection.OpenAsync();
+                using (var command = new SqlCommand(sqlString, sqlConnection))
+                {
+                    command.Parameters.AddWithValue("@id", userId);
+                    command.Parameters.AddWithValue("@code", code);
+
+                    int count = (int)await command.ExecuteScalarAsync();
+                    return count > 0; 
                 }
             }
         }

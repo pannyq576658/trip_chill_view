@@ -26,22 +26,31 @@ function registerPost(memberJson) {
         }
     });
 }
-
 function LINE_sql_load(memberJson) {  
     if (location.pathname == '/register')
         registerPost(memberJson)
     else if (location.pathname == '/login') {
-        $.get(route + '/api/member/' + memberJson.id).done(function (result, textStatus, jqXHR) {
-            console.log(result);
-            if (result.msg == "請去註冊") {
-                alert("你還沒註冊");
-                liff.logout();
-                top.location.href = '/register';
-            }
-            else {
-                member.setData(result.data);
-                alert("登入成功");
-                top.location.href = document.referrer;
+       
+        $.ajax({
+            url: route + '/api/member/apilogin',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(memberJson),
+            success: function (result) {
+                if (result.status == 0) {
+                    alert(result.msg);
+                    if (result.msg == "請去註冊") {
+                        top.location.href = '/register';
+                    }
+                }
+                else {
+                    member.setData(result.data);
+                    alert("登入成功");
+                    top.location.href = document.referrer;
+                }
+            },
+            error: function () {
+                alert("登入發生錯誤，請稍後再試");
             }
         });
     }
@@ -72,7 +81,7 @@ function LineInit(liffId) {
             if (liff.isLoggedIn()) {
                 clearInterval(LINE_login_state_timer);
                 var user = liff.getDecodedIDToken();
-                console.log(user);;
+                console.log(user);
                 try {
                     
                     var memberJson = { 'id': 'line' + user.sub, 'name': user.name, 'cartNum': 0, 'platform': 'line', 'gender': '0', 'email': user.email, 'birthday': '1935/01/01', 'pictureUrl': user.picture };
@@ -89,10 +98,7 @@ function LineInit(liffId) {
                     liff.logout();
                     alert("抓不到資料");
                    
-                }
-                
-               
-
+                }                              
             }
         }
     }).catch(function (error) {
@@ -117,22 +123,8 @@ function doLogin() {
         }       
     }
     else if (location.pathname == '/login') {
-        var user_id = $('#login_iUid').val();
-        var pwd = $('#login_iPwd').val();
-       /* $.get(route + '/api/member/' + user_id + '/' + pwd).done(function (result, textStatus, jqXHR) {
-            if (result.msg == "請去註冊") {
-                alert("你還沒註冊");
-                top.location.href = '/register';
-            }
-            else if (result.msg == "請檢查密碼是否正確")
-                alert(result.msg);
-            else {
-                member.setData(result.data);
-                alert("登入成功");
-                top.location.href = document.referrer;
-            }
-           
-        });*/
+        var user_id = $('#login_id').val();
+        var pwd = $('#login_Pwd').val();     
         $.ajax({
             url: route + '/api/member/login',
             type: 'POST',
@@ -359,7 +351,6 @@ function doGGLogin() {
                     }
                 });
             }
-
         },
             function (error) {
                 console.log("Google登入失敗");

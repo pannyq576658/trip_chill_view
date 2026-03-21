@@ -47,6 +47,8 @@ namespace trip_chill_backend_test
 
             app.UseHttpsRedirection();
 
+            app.UseStaticFiles();
+
             app.UseRouting();
 
             app.UseCors();

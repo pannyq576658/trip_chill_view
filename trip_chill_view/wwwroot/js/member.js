@@ -9,7 +9,8 @@
         this.birthdayY = $.cookie("birthdayY");
         this.birthdayM = $.cookie("birthdayM");
         this.birthdayD = $.cookie("birthdayD");
-        this.gender = $.cookie("gender");    
+        this.gender = $.cookie("gender");
+        this.verifyApproved = $.cookie("verifyApproved");
     }
     setData(memberJson) {
         for (var k in memberJson) {
@@ -56,6 +57,7 @@
         $.cookie("birthdayD", "", { path: '/' });
         $.cookie("gender", "", { path: '/' });
         $.cookie("platform", "", { path: '/' });
+        $.cookie("verifyApproved", "", { path: '/' });
         this.id = '';
         this.cartNum = '0';
         this.name = '';
@@ -66,13 +68,14 @@
         this.birthdayM = '';
         this.birthdayD = '';
         this.gender = '';
+        this.verifyApproved = '';
     }
     setDataProperty(key,value) {
         this[key] = value;
         $.cookie(key, value, { path: '/' });
    }
     print() {
-        console.log(this.id+'\n'+this.cartNum + '\n' + this.name + '\n' + this.email + '\n' + this.picture + '\n' + this.platform + '\n' + this.birthdayY + '\n' + this.birthdayM + '\n' + this.birthdayD + '\n' + this.gender + '\n')
+        console.log(this.id + '\n' + this.cartNum + '\n' + this.name + '\n' + this.email + '\n' + this.picture + '\n' + this.platform + '\n' + this.birthdayY + '\n' + this.birthdayM + '\n' + this.birthdayD + '\n' + this.gender + '\n' + this.verifyApproved + '\n')
 
     }
         
