@@ -8,11 +8,11 @@ namespace trip_chill_backend_test.Dao
 {
     public class BaseDao
     {
-        SqlConnection sqlConnection;
-        ProjectSet Project_Set = new ProjectSet();
+       
         public BaseDao()
-        {           
-        }       
+        {
+         
+        }    
         public async Task<int> get_tableID(string tableName)
         {
             string sqlString = $@"select currentlytableNameID from tableItem where tableName=@tableName";

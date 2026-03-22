@@ -8,14 +8,10 @@ using trip_chill_backend_test.model;
 namespace trip_chill_backend_test.Dao
 {
     public class HistoryOrderDao
-    {
-        SqlConnection sqlConnection;
-        ProjectSet Project_Set = new ProjectSet();
+    {       
         public HistoryOrderDao()
         {
-            sqlConnection = new SqlConnection(Project_Set.connectString);
-            //開啟連線
-            sqlConnection.Open();
+            
         }
         public async Task<List<product>> getHisOrderProduct(string payOrderID)
         {

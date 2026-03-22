@@ -11,14 +11,10 @@ namespace trip_chil_ECPay.Dao
 {
     public class GoToPayDao
     {
-        SqlConnection sqlConnection;
-        ProjectSet Project_Set = new ProjectSet();
+        
         public GoToPayDao()
         {
-            sqlConnection = new SqlConnection(Project_Set.connectString);
-
-            //開啟連線
-            sqlConnection.Open();
+            
         }
         
         public async Task<List<payOrderProduct>> getOrderProductList(string payOrderID)

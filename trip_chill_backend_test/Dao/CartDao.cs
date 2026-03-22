@@ -9,14 +9,10 @@ namespace trip_chill_backend_test.Dao
 {
     public class CartDao
     {
-        SqlConnection sqlConnection;
-        ProjectSet Project_Set = new ProjectSet();
+       
         public CartDao()
         {
-            sqlConnection = new SqlConnection(Project_Set.connectString);
-
-            //開啟連線
-            sqlConnection.Open();
+            
         }      
         public async Task<List<cart1>> getCart(string ownerID)
         {

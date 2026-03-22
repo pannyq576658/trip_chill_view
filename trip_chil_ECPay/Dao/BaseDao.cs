@@ -10,14 +10,10 @@ namespace trip_chil_ECPay.Dao
 {
     public class BaseDao
     {
-        SqlConnection sqlConnection;
-        ProjectSet Project_Set = new ProjectSet();
+        
         public BaseDao()
         {
-            sqlConnection = new SqlConnection(Project_Set.connectString);
-
-            //開啟連線
-            sqlConnection.Open();
+            
         }      
         public async Task<int> get_tableID(string tableName)
         {

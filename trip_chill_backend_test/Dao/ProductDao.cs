@@ -9,17 +9,17 @@ namespace trip_chill_backend_test.Dao
 {
     public class ProductDao
     {
-        SqlConnection sqlConnection;
-        ProjectSet Project_Set = new ProjectSet();
+
         public ProductDao()
-        {           
+        {
+            
         }       
         public async Task<List<product>> getProductList()
         {
             List<product> productArray = new List<product>();
             string sqlString = $@"select * from product";
 
-            using (SqlConnection sqlConnection = new SqlConnection(Project_Set.connectString))
+            using (SqlConnection sqlConnection = new SqlConnection(new ProjectSet().connectString))
             {
                 await sqlConnection.OpenAsync();
                 using (SqlCommand command = new SqlCommand(sqlString, sqlConnection))
@@ -39,7 +39,7 @@ namespace trip_chill_backend_test.Dao
         {
             List<product> productArray = new List<product>();
             String sqlString = $@"select TOP({max})* from product except SELECT TOP({min})* FROM product";
-            using (SqlConnection sqlConnection = new SqlConnection(Project_Set.connectString))
+            using (SqlConnection sqlConnection = new SqlConnection(new ProjectSet().connectString))
             {
                 await sqlConnection.OpenAsync();
                 using (SqlCommand command = new SqlCommand(sqlString, sqlConnection))
@@ -96,7 +96,7 @@ namespace trip_chill_backend_test.Dao
             int n = 0;
             String sqlString = $@"select count(*) from product";
 
-            using (SqlConnection sqlConnection = new SqlConnection(Project_Set.connectString))
+            using (SqlConnection sqlConnection = new SqlConnection(new ProjectSet().connectString))
             {
                 await sqlConnection.OpenAsync();
                 using (SqlCommand command = new SqlCommand(sqlString, sqlConnection))

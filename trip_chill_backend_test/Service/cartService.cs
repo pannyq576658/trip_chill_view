@@ -15,8 +15,7 @@ namespace trip_chill_backend_test.Service
         {
             List<cart1> cartArray = await cartDao.getCart(owner_id);
             return cartArray;
-        }
-        
+        }       
         public async Task<List<cart1>> getCartSelectCheck(string owner_id)
         {
             List<cart1> cartArray = await cartDao.getCartSelectCheck(owner_id);

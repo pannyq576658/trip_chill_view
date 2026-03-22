@@ -9,15 +9,10 @@ namespace trip_chill_backend_test.Dao
 {
     public class PayOrderDao
     {
-        SqlConnection sqlConnection;
-        ProjectSet Project_Set = new ProjectSet();
         public PayOrderDao()
         {
-            sqlConnection = new SqlConnection(Project_Set.connectString);
-            //開啟連線
-            sqlConnection.Open();
-        }
-       
+          
+        }      
         public async Task<bool> OrderExist(string findIdName, string idValue)
         {
             string sqlString = $@"select * from payOrder where {findIdName}=@{findIdName} and isPay=@isPay ";

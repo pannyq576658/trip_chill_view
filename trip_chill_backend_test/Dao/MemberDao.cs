@@ -9,14 +9,10 @@ namespace trip_chill_backend_test.Dao
 {
     public class MemberDao
     {
-        SqlConnection sqlConnection;
-        ProjectSet Project_Set = new ProjectSet();
+
         public MemberDao()
         {
-            sqlConnection = new SqlConnection(Project_Set.connectString);
-
-            //開啟連線
-            sqlConnection.Open();
+           
         }      
         public async Task<string> member_find(string id)
         {
