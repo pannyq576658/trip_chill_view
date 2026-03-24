@@ -247,13 +247,16 @@ function mainProfileRun() {
                     alert(response.msg);
                     if (response.msg == "修改成功") {
                         member.setDataProperty('name', $('#userName').val());
-                        member.setDataProperty('picture', finalPictureUrl); // 更新 Cookie 中的圖片網址
+                        member.setDataProperty('picture', route + finalPictureUrl); // 更新 Cookie 中的圖片網址
                         $('.' + member.platform + '-bind-name').text($('#userName').val());
                         $('.navbar-cards .username').text($('#userName').val());
                         member.setDataProperty('birthdayY', $('#birthSelect :selected').text());
                         member.setDataProperty('birthdayM', $('#monthSelect :selected').text());
                         member.setDataProperty('birthdayD', $('#daySelect :selected').text());
                         member.setDataProperty('gender', gender);
+                        $('.acount-user-image').css('background-image', 'url(' + route + finalPictureUrl + ')');
+                        $('.navbar-cards .user-icon').attr('style', "background-image: url(" + route + finalPictureUrl + ");");
+                        $('.userSignin .user-icon').attr('style', "background-image: url(" + route + finalPictureUrl + ");");
                         selectedFile = null; // 儲存完畢清空暫存檔案
                     }
                 }
@@ -274,11 +277,8 @@ function mainProfileRun() {
                 contentType: false,
                 success: function (response) {
                     if (response.status == 1) {
-                        var pictureUrl = route + response.data;                       
-                        doSave(pictureUrl); // 上傳成功後，執行資料儲存
-                        $('.acount-user-image').css('background-image', 'url(' + pictureUrl + ')');
-                        $('.navbar-cards .user-icon').attr('style', "background-image: url(" + pictureUrl + ");");
-                        $('.userSignin .user-icon').attr('style', "background-image: url(" + pictureUrl + ");");
+                        var pictureUrl = response.data;                       
+                        doSave(pictureUrl); // 上傳成功後，執行資料儲存                       
                     } else {
                         alert('圖片上傳失敗：' + response.msg);
                     }

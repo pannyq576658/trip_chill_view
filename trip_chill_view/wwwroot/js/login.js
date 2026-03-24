@@ -12,7 +12,9 @@ function registerPost(memberJson) {
             
             if (response.msg == '已經註冊過了') {
                 $.get(route + '/api/member/' + memberJson.id).done(function (result, textStatus, jqXHR) {
-                    member.setData(result.data);
+                    var memberData = result.data;
+                    memberData.pictureUrl = route + memberData.pictureUrl;
+                    member.setData(memberData);
                     alert(response.msg);
                     top.location.href = '/';
                 });
@@ -138,7 +140,9 @@ function doLogin() {
                     }
                 }
                 else {
-                    member.setData(result.data);
+                    var memberData = result.data;
+                    memberData.pictureUrl = route + memberData.pictureUrl;
+                    member.setData(memberData);
                     alert("登入成功");
                     top.location.href = document.referrer;
                 }
@@ -207,7 +211,9 @@ function doFBLogin() {
 
                         }
                         else {
-                            member.setData(result.data);
+                            var memberData = result.data;
+                            memberData.pictureUrl = route + memberData.pictureUrl;
+                            member.setData(memberData);
                             alert("登入成功");
                             top.location.href = document.referrer;
                         }
@@ -345,7 +351,9 @@ function doGGLogin() {
 
                     }
                     else {
-                        member.setData(result.data);
+                        var memberData = result.data;
+                        memberData.pictureUrl = route + memberData.pictureUrl;
+                        member.setData(memberData);
                         alert("登入成功");
                         top.location.href = document.referrer;
                     }
