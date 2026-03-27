@@ -46,8 +46,10 @@ function LINE_sql_load(memberJson) {
                     }
                 }
                 else {
-                    member.setData(result.data);
-                    alert("登入成功");
+                    var memberData = result.data;
+                    memberData.pictureUrl = route + memberData.pictureUrl;
+                    member.setData(memberData);
+                    alert(response.msg);
                     top.location.href = document.referrer;
                 }
             },
