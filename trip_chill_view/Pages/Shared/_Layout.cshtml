@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="~/css/aa1.css">
     <link rel="stylesheet" href="~/css/common.css">
     <link rel="stylesheet" href="~/css/navbar1.css">
+    <link rel="stylesheet" href="~/css/intro.css">
     <link rel="stylesheet" href="~/css/footer-group.css">
     <link rel="stylesheet" href="~/css/loginStyle.css">
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
@@ -112,7 +113,6 @@
         footer {
             flex-shrink: 0; /* 確保 footer 不會被壓縮 */
         }
-
     </style>
     <script>
         let FB_appID = '1068599877697364';
@@ -309,7 +309,7 @@
                                     <a class="nav-link" asp-page="/productList">商品列表</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/">創立宗旨</a>
+                                    <a class="nav-link" asp-page="/CreatePurpose">創立宗旨</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" asp-page="/trip-and-save-tip">簡介</a>
@@ -424,8 +424,7 @@
                             <div class="" style="padding-right:50px">
                                 <div class="footer-head">支援服務</div>
                                 <ul class="d-flex flex-sm-column justify-content-between">
-                                    <li><a href="/">新手上路</a></li>
-                                    <li><a href="/">教室安裝</a></li>                                  
+                                    <li><a href="/">新手上路</a></li>                                                                    
                                     <li><a href="/">常見問題</a></li>
                                 </ul>
                             </div>

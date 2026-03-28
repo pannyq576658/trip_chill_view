@@ -17,8 +17,8 @@ namespace trip_chill_backend_test.Service
         }
         public async Task<List<product>> getProductRange(int id)
         {
-            int max = id * 10;
-            int min = (id - 1) * 10;
+            int max = id * 12;
+            int min = (id - 1) * 12;
             return await _Dao.getProductRange(min, max);
         }
 

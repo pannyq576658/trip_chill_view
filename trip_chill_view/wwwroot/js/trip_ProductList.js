@@ -163,7 +163,7 @@ function mainProductRun() {
     $('.productListRow').empty();
     listDP_element(layer_page);
     $.get(route + '/api/product/productNum').done(function (result, textStatus, jqXHR) {
-        total_page = (Number(result.data) % 10 == 0) ? Math.floor(Number(result.data) / 10) : Math.floor(Number(result.data) / 10) + 1;
+        total_page = (Number(result.data) % 12 == 0) ? Math.floor(Number(result.data) / 12) : Math.floor(Number(result.data) / 12) + 1;
         currentlyPage = 1;
         fa_angle_left = false;
         fa_angle_right = true;

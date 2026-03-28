@@ -49,7 +49,7 @@ function LINE_sql_load(memberJson) {
                     var memberData = result.data;
                     memberData.pictureUrl = route + memberData.pictureUrl;
                     member.setData(memberData);
-                    alert(response.msg);
+                    alert('登入成功');
                     top.location.href = document.referrer;
                 }
             },
